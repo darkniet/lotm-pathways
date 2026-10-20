@@ -63,7 +63,7 @@ export function ShootingStars() {
         })
         const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 8, 1), material)
         mesh.frustumCulled = false
-        mesh.renderOrder = -12
+        mesh.renderOrder = -39
         mesh.visible = false
         return { mesh, material, start: -10, duration: 1 }
       }),

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef, type CSSProperties } from 'react'
+import logo from '../assets/lotm-logo.png'
 import { pathwayById, pathways, type PathwayId } from '../data/pathways'
 import { preloadRecord } from '../data/wiki'
 import { dom } from '../lib/registry'
@@ -43,8 +44,11 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
         animate={{ opacity: shown ? 1 : 0, y: 0 }}
         transition={{ duration: reduced ? 0.2 : 1.1, delay }}
       >
-        <h1>The Twenty-Two Pathways</h1>
-        <p>Lord of the Mysteries</p>
+        <div className="mini-logo" role="img" aria-label="Lord of the Mysteries">
+          <span style={{ '--logo': `url(${logo})` } as CSSProperties} />
+        </div>
+        {/* Non-breaking hyphen: on phones the heading wraps before "Pathways", never inside "Twenty-Two". */}
+        <h1>The Twenty‑Two Pathways</h1>
         {mobile && <p className="title-hint">Tap a pathway to climb its Sequences</p>}
       </motion.header>
 

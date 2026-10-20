@@ -2,7 +2,10 @@
 // (its Encyclopedica is what the wiki cites):
 //   - the 22 pathway symbols → src/symbols/{512,1024}/<id>.webp
 //   - the English "Lord of Mysteries" logo → src/assets/lotm-logo.png
-//   - the Sefirah Castle parallax scene from the home page → src/assets/title/*.webp
+//   - the home page's parallax scenes, read from its markup (layer images and depths):
+//       scene 1, the Sefirah Castle hall   → src/assets/title/*.webp   (title screen)
+//       scene 3, Backlund                  → src/assets/scenes/backlund (pathway view)
+//       scene 4, the gray-fog vortex       → src/assets/scenes/vortex   (constellation)
 // The logo is only published at 240px, so it is upscaled as a coverage mask: the alpha
 // is enlarged smoothly, then sharpened with a steep curve (the signed-distance trick),
 // which keeps the blackletter edges crisp at title size. The page colors it with CSS.
@@ -20,17 +23,9 @@ const API = 'https://lomworld.com/api/overview/list?categoryId=62&languageType=2
 const PAGE = 'https://lomworld.com/handbook/en?categoryId=62'
 const UA = 'Mozilla/5.0 (lotm-pathway-explorer fan project)'
 const LOGO = 'https://lomworld.com/handbook/assets/logo-en-DEqfZf85.png'
-// The home page's first scene, back to front, with the parallax depth it uses (--d, in %).
-// The CDN only serves these with the site as referer.
-const SCENE_CDN = 'https://lomworld-stacdn.lomworld.com/formal/lotm/pc/asset/img/'
-const SCENE = [
-  ['hall', '3a6e1585ee58f532b0c8', 0.2],
-  ['table', 'e4d8bebd2e6d951e3438', 0.5],
-  ['wisp', 'eebdb84910cba29eb699', 0.6],
-  ['drift', 'bfca1dd0ea2b915e44f4', 0.8],
-  ['bank', '209b6506fec96b0aa811', 1],
-  ['front', '1b5f1960667bcc91da0e', 2.4],
-]
+const HOME = 'https://lomworld.com/en'
+// Names for the title scene's layers, back to front (the title styles fog layers by name).
+const HALL_NAMES = ['hall', 'table', 'wisp', 'drift', 'bank', 'front']
 
 // Official English titles → our ids ("Perfector" is the official name for Paragon).
 const IDS = {
@@ -78,14 +73,42 @@ execFileSync('magick', [logoRaw, '-bordercolor', 'none', '-border', '8', '-alpha
 execFileSync('magick', [mask, '(', '+clone', '-fill', 'white', '-colorize', '100', ')', '+swap', '-alpha', 'off', '-compose', 'CopyOpacity', '-composite', '-trim', '+repage', join(ROOT, 'src', 'assets', 'lotm-logo.png')])
 console.log('wrote src/assets/lotm-logo.png')
 
-// Title scene: WebP keeps the fog's soft alpha at a fraction of the PNG size.
-const TITLE = join(ROOT, 'src', 'assets', 'title')
-mkdirSync(TITLE, { recursive: true })
-for (const [name, hash] of SCENE) {
-  const raw = join(CACHE, `scene-${name}.png`)
-  if (!existsSync(raw)) writeFileSync(raw, Buffer.from(await (await get(`${SCENE_CDN}${hash}.png`, 'https://lomworld.com/en')).arrayBuffer()))
-  execFileSync('magick', [raw, '-resize', '2400x2400>', '-define', 'webp:alpha-quality=90', '-quality', '80', join(TITLE, `${name}.webp`)])
+// Parallax scenes. Each <div class="land-scene"> holds layer <img>s back to front, each with
+// its depth as an inline --d (in %). Most are on a CDN that wants the site as referer;
+// a few are inlined as data URIs. WebP keeps the soft alpha at a fraction of the size.
+const html = await (await get(HOME)).text()
+const scenes = html
+  .split(/<(?:section|div)[^>]*class="land-scene"[^>]*>/)
+  .slice(1)
+  .map((block) =>
+    [...block.matchAll(/<img([^>]*class="(land-scene-layer[^"]*)"[^>]*)>/g)].map(([, attrs, cls]) => ({
+      src: attrs.match(/src="([^"]+)"/)[1],
+      depth: Number(attrs.match(/--d:([\d.]+)%/)?.[1] ?? 0),
+      boat: cls.includes('boat'),
+    })),
+  )
+if (scenes.length < 4) throw new Error(`Expected 4 scenes on ${HOME}, found ${scenes.length}`)
+
+async function writeScene(layers, dir, names) {
+  mkdirSync(dir, { recursive: true })
+  const meta = []
+  for (const [i, layer] of layers.entries()) {
+    const name = names?.[i] ?? String(i)
+    const raw = join(CACHE, `${dir.split('/').pop()}-${name}.png`)
+    if (!existsSync(raw)) {
+      const data = layer.src.startsWith('data:')
+        ? Buffer.from(layer.src.split(',', 2)[1], 'base64')
+        : Buffer.from(await (await get(layer.src, HOME)).arrayBuffer())
+      writeFileSync(raw, data)
+    }
+    execFileSync('magick', [raw, '-resize', '2400x2400>', '-define', 'webp:alpha-quality=90', '-quality', '80', join(dir, `${name}.webp`)])
+    meta.push({ name, depth: layer.depth, ...(layer.boat ? { boat: true } : {}) })
+  }
+  writeFileSync(join(dir, 'scene.json'), JSON.stringify(meta, null, 2))
+  console.log(`wrote ${meta.length} layers to ${dir}`)
 }
-writeFileSync(join(TITLE, 'scene.json'), JSON.stringify(SCENE.map(([name, , depth]) => ({ name, depth })), null, 2))
-console.log(`wrote ${SCENE.length} title scene layers`)
+
+await writeScene(scenes[0], join(ROOT, 'src', 'assets', 'title'), HALL_NAMES)
+await writeScene(scenes[2], join(ROOT, 'src', 'assets', 'scenes', 'backlund'))
+await writeScene(scenes[3], join(ROOT, 'src', 'assets', 'scenes', 'vortex'))
 console.log(`wrote ${list.length} symbols to ${OUT}`)

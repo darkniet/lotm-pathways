@@ -6,10 +6,10 @@ import { useEmblems } from '../lib/textures'
 import { Bursts } from './Bursts'
 import { CameraRig, TITLE_Z } from './CameraRig'
 import { Ascent } from './Ascent'
+import { BacklundBackdrop, VortexBackdrop } from './Backdrops'
 import { Astrolabe } from './Astrolabe'
 import { Constellation } from './Constellation'
 import { Effects } from './Effects'
-import { Nebula } from './Nebula'
 import { NeighborEmblems } from './NeighborEmblems'
 import { ShootingStars } from './ShootingStars'
 import { Starfield } from './Starfield'
@@ -19,6 +19,8 @@ function World() {
   const textures = useEmblems()
   return (
     <>
+      <VortexBackdrop />
+      <BacklundBackdrop />
       <Constellation textures={textures} />
       <Ascent textures={textures} />
       <NeighborEmblems textures={textures} />
@@ -41,7 +43,6 @@ export function Scene() {
       <PerformanceMonitor onDecline={() => setDpr((d) => Math.max(1, d - 0.5))} onIncline={() => setDpr(maxDpr)} />
       <Starfield />
       <ShootingStars />
-      <Nebula />
       <Astrolabe />
       <TitleSky />
       <Suspense fallback={null}>

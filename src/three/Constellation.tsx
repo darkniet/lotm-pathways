@@ -9,7 +9,7 @@ import { dom, emblemWorld } from '../lib/registry'
 import type { EmblemTextures } from '../lib/textures'
 import { TIMING, useExplorer } from '../state/explorer'
 import { emit } from './Bursts'
-import { glyphMaterial, haloMaterial, raysMaterial, unitPlane } from './shaders'
+import { glyphMaterial, haloMaterial, plateMaterial, raysMaterial, unitPlane } from './shaders'
 
 // The official symbols carry their own glow and dark backing disc, so they are
 // drawn a little larger than the old masks and need only a soft halo behind.
@@ -29,6 +29,8 @@ interface Item {
   glyph: THREE.Mesh
   halo: THREE.Mesh
   rays: THREE.Mesh
+  plate: THREE.Mesh
+  pm: THREE.ShaderMaterial
   gm: THREE.ShaderMaterial
   hm: THREE.ShaderMaterial
   rm: THREE.ShaderMaterial
@@ -83,16 +85,21 @@ export function Constellation({ textures }: { textures: EmblemTextures }) {
         const glyph = new THREE.Mesh(unitPlane, gm)
         const halo = new THREE.Mesh(unitPlane, hm)
         const rays = new THREE.Mesh(unitPlane, rm)
-        glyph.renderOrder = 3
+        const pm = plateMaterial(color)
+        const plate = new THREE.Mesh(unitPlane, pm)
+        // Back to front: rays, colored aura, dark plate, symbol. The aura shows as a
+        // colored ring around the plate, the way the official badges look on dark.
+        glyph.renderOrder = 4
+        plate.renderOrder = 3
         halo.renderOrder = 2
         rays.renderOrder = 1
         halo.scale.setScalar(HALO)
         rays.scale.setScalar(RAYS)
         glyph.scale.setScalar(GLYPH)
         const group = new THREE.Group()
-        group.add(rays, halo, glyph)
+        group.add(rays, halo, plate, glyph)
         if (!emblemWorld.has(p.id)) emblemWorld.set(p.id, new THREE.Vector3())
-        return { id: p.id, color, group, glyph, halo, rays, gm, hm, rm, hover: 0, dim: 1, ignited: false, phase: i * 2.399 }
+        return { id: p.id, color, group, glyph, halo, rays, plate, pm, gm, hm, rm, hover: 0, dim: 1, ignited: false, phase: i * 2.399 }
       }),
     [textures],
   )
@@ -198,7 +205,8 @@ export function Constellation({ textures }: { textures: EmblemTextures }) {
       it.gm.uniforms.uGlow.value = (1.12 + 0.08 * pulse + 0.3 * it.hover + surge * 1.4) * it.dim * smoothstep(0, 0.6, ig)
       it.gm.uniforms.uFlash.value = flash * 1.6 + it.hover * (0.32 + 0.08 * pulse) + surge * 0.8
       it.gm.uniforms.uOpacity.value = fade * smoothstep(0, 0.5, ig)
-      it.hm.uniforms.uIntensity.value = (0.3 + 0.07 * pulse + 0.45 * it.hover + surge * 1.4) * it.dim * ig * fade
+      it.hm.uniforms.uIntensity.value = (0.45 + 0.08 * pulse + 0.45 * it.hover + surge * 1.4) * it.dim * ig * fade
+      it.pm.uniforms.uOpacity.value = 0.82 * fade * smoothstep(0, 0.5, ig)
       it.hm.uniforms.uFlash.value = flash
       it.rm.uniforms.uAmount.value = it.hover * fade
       it.rays.rotation.z = t * 0.2 + it.phase
@@ -206,6 +214,7 @@ export function Constellation({ textures }: { textures: EmblemTextures }) {
       const pop = ig > 0 && ig < 1 && !reduced ? Math.sin(ig * Math.PI) * 0.16 : 0
       const sc = 1 + 0.18 * it.hover + pop
       it.glyph.scale.setScalar(GLYPH * sc)
+      it.plate.scale.setScalar(GLYPH * sc * 1.04)
       it.rays.scale.setScalar(RAYS * sc)
 
       // During a flight the others streak away from the target.

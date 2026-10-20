@@ -146,5 +146,5 @@ export function Starfield() {
     u.uFade.value = s.reduced ? 1 : Math.min(1, u.uFade.value + Math.min(dt, 0.05) / 1.6)
   })
 
-  return <mesh geometry={geometry} material={material} frustumCulled={false} renderOrder={-10} />
+  return <mesh geometry={geometry} material={material} frustumCulled={false} renderOrder={-40} />
 }

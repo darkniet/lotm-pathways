@@ -5,7 +5,7 @@ import { pathwayById } from '../data/pathways'
 import { dom, input } from '../lib/registry'
 import type { EmblemTextures } from '../lib/textures'
 import { useExplorer } from '../state/explorer'
-import { glyphMaterial, haloMaterial, unitPlane } from './shaders'
+import { glyphMaterial, haloMaterial, plateMaterial, unitPlane } from './shaders'
 
 // Small, dim emblems for neighboring pathways. The DOM decides where they go
 // (each sits in a slot inside its button); this places a 3D emblem over each slot
@@ -25,12 +25,15 @@ export function NeighborEmblems({ textures }: { textures: EmblemTextures }) {
         const hm = haloMaterial(WHITE)
         const glyph = new THREE.Mesh(unitPlane, gm)
         const halo = new THREE.Mesh(unitPlane, hm)
-        glyph.renderOrder = 9
+        const pm = plateMaterial(WHITE)
+        const plate = new THREE.Mesh(unitPlane, pm)
+        glyph.renderOrder = 10
+        plate.renderOrder = 9
         halo.renderOrder = 8
         const group = new THREE.Group()
-        group.add(halo, glyph)
+        group.add(halo, plate, glyph)
         group.visible = false
-        return { group, glyph, halo, gm, hm, fade: 0, hover: 0, id: '' }
+        return { group, glyph, halo, plate, gm, hm, pm, fade: 0, hover: 0, id: '' }
       }),
     [textures],
   )
@@ -67,6 +70,7 @@ export function NeighborEmblems({ textures }: { textures: EmblemTextures }) {
         const c = new THREE.Color(pathwayById[id].color)
         slot.gm.uniforms.uColor.value.copy(c)
         slot.hm.uniforms.uColor.value.copy(c)
+        slot.pm.uniforms.uColor.value.set('#05070f').lerp(c, 0.1)
       }
       // Ray through the slot's center, then a point DEPTH along the view axis.
       const nx = ((rect.left + rect.width / 2) / W) * 2 - 1
@@ -78,12 +82,14 @@ export function NeighborEmblems({ textures }: { textures: EmblemTextures }) {
       const size = (rect.width / H) * 2 * DEPTH * tanHalf
       slot.glyph.scale.setScalar(size)
       slot.halo.scale.setScalar(size * 2.6)
+      slot.plate.scale.setScalar(size * 1.04)
 
       slot.fade += (1 - slot.fade) * k
       slot.hover += ((input.neighborHover === id ? 1 : 0) - slot.hover) * k
       slot.gm.uniforms.uGlow.value = 0.75 + slot.hover * 0.9
       slot.gm.uniforms.uOpacity.value = slot.fade * (0.75 + slot.hover * 0.25)
-      slot.hm.uniforms.uIntensity.value = (0.18 + slot.hover * 0.45) * slot.fade
+      slot.hm.uniforms.uIntensity.value = (0.22 + slot.hover * 0.45) * slot.fade
+      slot.pm.uniforms.uOpacity.value = 0.8 * slot.fade
       slot.group.visible = true
     })
   })

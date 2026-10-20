@@ -9,7 +9,7 @@ import { loadCrown, type EmblemTextures } from '../lib/textures'
 import { useExplorer } from '../state/explorer'
 import { emit } from './Bursts'
 import { heatHaze } from './HeatHaze'
-import { glyphMaterial, haloMaterial, raysMaterial, ringMaterial, setGlyphMap, unitPlane } from './shaders'
+import { glyphMaterial, haloMaterial, plateMaterial, raysMaterial, ringMaterial, setGlyphMap, unitPlane } from './shaders'
 
 // Screen 2: Sequences 9 → 0 as a spiral stair of light. Node index i runs
 // 0 (Sequence 9, bottom) … 9 (Sequence 0, top). The helix turns so the active
@@ -262,17 +262,21 @@ export function Ascent({ textures }: { textures: EmblemTextures }) {
     const b = new THREE.Mesh(unitPlane, gb)
     const halo = new THREE.Mesh(unitPlane, hm)
     const rays = new THREE.Mesh(unitPlane, rm)
-    a.renderOrder = b.renderOrder = 6
+    const pm = plateMaterial(WHITE)
+    const plate = new THREE.Mesh(unitPlane, pm)
+    a.renderOrder = b.renderOrder = 7
+    plate.renderOrder = 6
     halo.renderOrder = 5
     rays.renderOrder = 4
     const group = new THREE.Group()
-    group.add(rays, halo, a, b)
+    group.add(rays, halo, plate, a, b)
     group.position.set(0, ASCENT.topY, ASCENT.topZ)
     a.scale.setScalar(ASCENT.emblemSize * 1.15)
     b.scale.setScalar(ASCENT.emblemSize * 1.15)
+    plate.scale.setScalar(ASCENT.emblemSize * 1.2)
     halo.scale.setScalar(ASCENT.emblemSize * 2.8)
     rays.scale.setScalar(ASCENT.emblemSize * 4.2)
-    return { group, ga, gb, hm, rm, rays, shown: null as PathwayId | null, mix: -1 }
+    return { group, ga, gb, hm, rm, pm, rays, shown: null as PathwayId | null, mix: -1 }
   }, [textures])
 
   /** Show `id` on a crown layer now, sharpen it when the large symbol arrives. */
@@ -431,6 +435,8 @@ export function Ascent({ textures }: { textures: EmblemTextures }) {
     }
     crown.ga.uniforms.uOpacity.value = crown.mix >= 0 ? 1 - crown.mix : 1
     crown.gb.uniforms.uOpacity.value = crown.mix >= 0 ? crown.mix : 0
+    crown.pm.uniforms.uColor.value.set('#05070f').lerp(color.value, 0.1)
+    crown.pm.uniforms.uOpacity.value = 0.8
     crown.hm.uniforms.uColor.value.copy(color.value)
     crown.hm.uniforms.uIntensity.value = 0.35 + r.progress * 0.35 + atTop * 0.35
     crown.rm.uniforms.uColor.value.copy(color.value)

@@ -51,7 +51,37 @@ export function glyphMaterial(map: THREE.Texture, color: THREE.Color) {
         float lum = dot(t.rgb, vec3(0.299, 0.587, 0.114));
         float strokes = mix(smoothstep(0.18, 0.7, lum), 1.0, uMono);
         vec3 c = base * uGlow + mix(uColor, vec3(1.0), 0.45) * strokes * uFlash * 1.6;
-        gl_FragColor = vec4(c, t.a * uOpacity);
+        // The official badges are mostly translucent (disc ~16%, glow rim <=50%). Lift the
+        // soft alpha so the disc and its colored rim survive over a painted background;
+        // fully opaque strokes are unchanged.
+        float a = pow(t.a, mix(0.6, 1.0, uMono));
+        gl_FragColor = vec4(c, a * uOpacity);
+      }
+    `,
+    transparent: true,
+    depthWrite: false,
+    toneMapped: false,
+  })
+}
+
+/**
+ * A soft dark disc that sits behind a symbol (normal blending), tinted faintly with its
+ * pathway color, so the badge reads as a badge over any background.
+ */
+export function plateMaterial(color: THREE.Color) {
+  return new THREE.ShaderMaterial({
+    uniforms: {
+      uColor: { value: new THREE.Color('#05070f').lerp(color, 0.1) },
+      uOpacity: { value: 0 },
+    },
+    vertexShader: planeVS,
+    fragmentShader: /* glsl */ `
+      uniform vec3 uColor; uniform float uOpacity;
+      varying vec2 vUv;
+      void main() {
+        float r = length(vUv - 0.5) * 2.0;
+        float disc = smoothstep(1.0, 0.7, r);
+        gl_FragColor = vec4(uColor, disc * uOpacity);
       }
     `,
     transparent: true,
