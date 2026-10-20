@@ -1,0 +1,95 @@
+{
+  "source": "https://lomworld.com/handbook/en?categoryId=62",
+  "note": "Official pathway symbols from the Lord of the Mysteries Encyclopedica.",
+  "symbols": {
+    "fool": {
+      "title": "The Fool/Seer",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/a28bc3c8.bya4w2.png"
+    },
+    "door": {
+      "title": "Door/Apprentice",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/f709c78f.76xyqa.png"
+    },
+    "error": {
+      "title": "Error/Marauder",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/9be013b8.7yhkjg.png"
+    },
+    "visionary": {
+      "title": "Visionary/Spectator",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/d0f2c7af.qz8uxe.png"
+    },
+    "sun": {
+      "title": "Sun/Bard",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/1aa5109a.xx3rl3.png"
+    },
+    "tyrant": {
+      "title": "Tyrant/Sailor",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/10e709e6.ahlym6.png"
+    },
+    "hanged_man": {
+      "title": "The Hanged Man/Secrets Suppliant ",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/b61f7553.bw6q82.png"
+    },
+    "white_tower": {
+      "title": "White Tower/Reader",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/fa55753e.07yvne.png"
+    },
+    "death": {
+      "title": "Death/Corpse Collector",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/46bf16e9.ntznzd.png"
+    },
+    "darkness": {
+      "title": "Darkness/Sleepless",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/d3304c27.5rm5r3.png"
+    },
+    "twilight_giant": {
+      "title": "Twilight Giant/Warrior",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/0e45fde6.bpx3d1.png"
+    },
+    "black_emperor": {
+      "title": "Black Emperor/Lawyer",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/c973b4d4.jppiql.png"
+    },
+    "justiciar": {
+      "title": "Justiciar/Arbiter",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/f1b517a0.s4a6pi.png"
+    },
+    "red_priest": {
+      "title": "Red Priest/Hunter",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/dd941051.b0yhh2.png"
+    },
+    "demoness": {
+      "title": "Demoness/Assassin",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/9944fbfa.gdkxma.png"
+    },
+    "abyss": {
+      "title": "Abyss/Criminal",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/ae515959.shkydc.png"
+    },
+    "chained": {
+      "title": "Chained/Prisoner",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/b68f340a.e51nm6.png"
+    },
+    "hermit": {
+      "title": "Hermit/Mystery Pryer",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/ea5de133.774e10.png"
+    },
+    "paragon": {
+      "title": "Perfector/Savant",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/f4bf5871.6ix239.png"
+    },
+    "mother": {
+      "title": "Mother/Planter",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/9295ae03.sacwk4.png"
+    },
+    "moon": {
+      "title": "The Moon/Apothecary",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03252026/92163c70.u3jp3y.png"
+    },
+    "wheel_of_fortune": {
+      "title": "Wheel of Fortune/Monster",
+      "image": "https://imgservices-1252317822.image.myqcloud.com/coco/s03262026/dc91f6a2.jb8dsn.png"
+    }
+  },
+  "logo": "https://lomworld.com/handbook/assets/logo-en-DEqfZf85.png"
+}

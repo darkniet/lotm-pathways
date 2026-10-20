@@ -1,0 +1,2169 @@
+{
+ "fetched": "2026-10-20T11:06:04.254Z",
+ "license": "CC BY-SA 3.0",
+ "site": "Lord of the Mysteries Wiki (Fandom)",
+ "pathways": {
+  "fool": {
+   "overview": "The Fool Pathway seems to be about fooling perceptions and reality. They specialize in divination, illusions, changing appearances, and controlling strong muscles and facial expressions.",
+   "sequences": {
+    "0": {
+     "name": "Fool",
+     "abilities": [
+      "Fooling",
+      "History",
+      "Time",
+      "Change",
+      "Controller of the Spirit World",
+      "Miracles"
+     ]
+    },
+    "1": {
+     "name": "Attendant of Mysteries",
+     "abilities": [
+      "Regenerate",
+      "Realm of Mysteries",
+      "Miracles",
+      "Spirit Body Threads Manipulation",
+      "Resurrection"
+     ]
+    },
+    "2": {
+     "name": "Miracle Invoker",
+     "abilities": [
+      "Miracles",
+      "History",
+      "Resurrection",
+      "Jamming in Fate",
+      "Historical Void Summoning",
+      "Historical Void Hiding"
+     ]
+    },
+    "3": {
+     "name": "Scholar of Yore",
+     "abilities": [
+      "History",
+      "Historical Void Borrowing",
+      "Historical Projection Summoning",
+      "Historical Void Hiding"
+     ]
+    },
+    "4": {
+     "name": "Bizarro Sorcerer",
+     "abilities": [
+      "Bestowal",
+      "Concealment",
+      "Divination",
+      "Spirit Vision"
+     ]
+    },
+    "5": {
+     "name": "Marionettist",
+     "abilities": [
+      "Spirit Body Threads Manipulation",
+      "Air Bullet"
+     ]
+    },
+    "6": {
+     "name": "Faceless",
+     "abilities": [
+      "Shapeshifting"
+     ]
+    },
+    "7": {
+     "name": "Magician",
+     "abilities": [
+      "Damage Transfer",
+      "Flaming Jump",
+      "Air Bullet",
+      "Paper Figurine Substitute",
+      "Flame Controlling",
+      "Underwater Breathing"
+     ]
+    },
+    "8": {
+     "name": "Clown",
+     "abilities": [
+      "Paper Daggers",
+      "Physical Enhancement",
+      "Danger Intuition"
+     ]
+    },
+    "9": {
+     "name": "Seer",
+     "abilities": [
+      "Enhanced Memory",
+      "Spirit Vision",
+      "Divination Arts & Ritualistic Magic",
+      "Danger Intuition"
+     ]
+    }
+   },
+   "neighbors": [
+    "error",
+    "door"
+   ]
+  },
+  "error": {
+   "overview": "The Error Pathway can deceive and steal all sorts of things. They can trick others with their eloquence, sleight-of-hand, steal their targets' Beyonder or mundane abilities, decrypt, steal thoughts and intentions.",
+   "sequences": {
+    "0": {
+     "name": "Error",
+     "abilities": [
+      "Deceit",
+      "Decryption",
+      "Avatars",
+      "Time",
+      "Space"
+     ]
+    },
+    "1": {
+     "name": "Worm of Time",
+     "abilities": [
+      "Time",
+      "Decryption",
+      "Avatars",
+      "Loopholes"
+     ]
+    },
+    "2": {
+     "name": "Trojan Horse of Destiny",
+     "abilities": [
+      "Loopholes",
+      "Fate",
+      "Fate Siphoning",
+      "Parasitism",
+      "Deceit"
+     ]
+    },
+    "3": {
+     "name": "Mentor of Deceit",
+     "abilities": [
+      "Deceit",
+      "Superior Observation",
+      "Avatars"
+     ]
+    },
+    "4": {
+     "name": "Parasite",
+     "abilities": [
+      "Parasitism",
+      "Avatars",
+      "Synchronization",
+      "Decryption"
+     ]
+    },
+    "5": {
+     "name": "Dream Stealer",
+     "abilities": [
+      "Thought Usurpation",
+      "Decryption"
+     ]
+    },
+    "6": {
+     "name": "Prometheus",
+     "abilities": [
+      "Physical Enhancement",
+      "Mental Resistance",
+      "Superior Observation"
+     ]
+    },
+    "7": {
+     "name": "Cryptologist",
+     "abilities": [
+      "Decryption",
+      "Superior Observation"
+     ]
+    },
+    "8": {
+     "name": "Swindler",
+     "abilities": [
+      "Eloquence",
+      "Thought Misdirection",
+      "Mental Disruption",
+      "Charm",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Marauder",
+     "abilities": [
+      "Superior Observation",
+      "Physical Enhancement",
+      "Combat Proficiency",
+      "Agile Hands"
+     ]
+    }
+   },
+   "neighbors": [
+    "fool",
+    "door"
+   ]
+  },
+  "door": {
+   "overview": "The Door Pathway has many abilities that allow an unrestrained freedom of movement. They can phase through walls, fight with a diverse set of tricky spells, divine the future through Astrology, record and use the powers of others Beyonders, and travel the Spirit World, which achieves teleportation.",
+   "sequences": {
+    "0": {
+     "name": "Door",
+     "abilities": [
+      "Space",
+      "Seals",
+      "Conceptualization",
+      "Concealment",
+      "Position"
+     ]
+    },
+    "1": {
+     "name": "Key of Stars",
+     "abilities": [
+      "Position",
+      "Seals",
+      "Space-Time Labyrinth",
+      "Teleportation"
+     ]
+    },
+    "2": {
+     "name": "Planeswalker",
+     "abilities": [
+      "Symbolization",
+      "Dimension Sight",
+      "Teleportation",
+      "Blink",
+      "Wandering"
+     ]
+    },
+    "3": {
+     "name": "Wanderer",
+     "abilities": [
+      "Wandering",
+      "Space Tearing",
+      "Space Integration",
+      "Space Concealment",
+      "Door Opening"
+     ]
+    },
+    "4": {
+     "name": "Secrets Sorcerer",
+     "abilities": [
+      "Space Concealment",
+      "Transfiguration",
+      "Secret Keeping",
+      "Exile"
+     ]
+    },
+    "5": {
+     "name": "Traveler",
+     "abilities": [
+      "Positioning",
+      "Blink",
+      "Invisible Hand",
+      "Record"
+     ]
+    },
+    "6": {
+     "name": "Scribe",
+     "abilities": [
+      "Record"
+     ]
+    },
+    "7": {
+     "name": "Astrologer",
+     "abilities": [
+      "Interference",
+      "Astrology",
+      "Spiritual Intuition",
+      "Door Opening",
+      "Escape Trick"
+     ]
+    },
+    "8": {
+     "name": "Trickmaster",
+     "abilities": [
+      "Flash",
+      "Black Screen",
+      "Gas Transfer",
+      "Loud Noise",
+      "Freezing",
+      "Electric Shock"
+     ]
+    },
+    "9": {
+     "name": "Apprentice",
+     "abilities": [
+      "Door Opening",
+      "Ritualistic Magic"
+     ]
+    }
+   },
+   "neighbors": [
+    "fool",
+    "error"
+   ]
+  },
+  "visionary": {
+   "overview": "The Visionary Pathway is adept at psychological manipulation. Beyonders of this pathway can read minds, discern emotions, hypnotize, and travel between dreams.",
+   "sequences": {
+    "0": {
+     "name": "Visionary",
+     "abilities": [
+      "Psyche (Mind)",
+      "Humanity",
+      "Discernment",
+      "Dream",
+      "Loss of Control"
+     ]
+    },
+    "1": {
+     "name": "Author",
+     "abilities": [
+      "Dream of Reality",
+      "Coincidence",
+      "Discernment"
+     ]
+    },
+    "2": {
+     "name": "Discerner",
+     "abilities": [
+      "Dream Maze",
+      "Discernment",
+      "Psychological Cue",
+      "Dream Weaving",
+      "Consciousness Stroll",
+      "Virtual Persona"
+     ]
+    },
+    "3": {
+     "name": "Dream Weaver",
+     "abilities": [
+      "Dream Weaving",
+      "Plague Storm",
+      "Enhanced Mental Attributes",
+      "Psychological Invisibility",
+      "Consciousness Stroll",
+      "Hypnosis"
+     ]
+    },
+    "4": {
+     "name": "Manipulator",
+     "abilities": [
+      "Manipulation",
+      "Mental Plague",
+      "Mind Storm",
+      "Virtual Persona",
+      "Mind Dragon Breath"
+     ]
+    },
+    "5": {
+     "name": "Dreamwalker",
+     "abilities": [
+      "Alteration",
+      "Guidance",
+      "Dream Traversal"
+     ]
+    },
+    "6": {
+     "name": "Hypnotist",
+     "abilities": [
+      "Psychological Invisibility",
+      "Physical Enhancement",
+      "Dragon Scales",
+      "Hypnosis",
+      "Non-Combat Hypnosis",
+      "Battle Hypnotism"
+     ]
+    },
+    "7": {
+     "name": "Psychiatrist",
+     "abilities": [
+      "Frenzy",
+      "Telepathy",
+      "Psychological Cue",
+      "Physical Enhancement"
+     ]
+    },
+    "8": {
+     "name": "Telepathist",
+     "abilities": [
+      "Mind Reading",
+      "Enhanced Vision",
+      "Body Language Analysis"
+     ]
+    },
+    "9": {
+     "name": "Spectator",
+     "abilities": [
+      "Body Language Analysis",
+      "Enhanced Mental Attributes",
+      "Enhanced Vision"
+     ]
+    }
+   },
+   "neighbors": [
+    "sun",
+    "tyrant",
+    "white_tower",
+    "hanged_man"
+   ]
+  },
+  "sun": {
+   "overview": "The Sun Pathway has traditional priest abilities, such as powerful light and holy magic, as well as buffing abilities. They can cast light and fire spells, buff others and themselves with proclamations, buffing or weakening people and Beyonder powers, purify and exorcise, and establish contracts that are hard to break.",
+   "sequences": {
+    "0": {
+     "name": "Sun",
+     "abilities": [
+      "Light",
+      "Order",
+      "Contracts",
+      "Holiness",
+      "Faith"
+     ]
+    },
+    "1": {
+     "name": "White Angel",
+     "abilities": [
+      "Incarnation of Order",
+      "Holy Kingdom",
+      "Servant of Faith",
+      "Pure White Light",
+      "Sun",
+      "Solar Envoy"
+     ]
+    },
+    "2": {
+     "name": "Lightseeker",
+     "abilities": [
+      "Solar Envoy",
+      "Praise the Sun",
+      "Spear of Light",
+      "Justice Trial"
+     ]
+    },
+    "3": {
+     "name": "Justice Mentor",
+     "abilities": [
+      "Faith Appraisal",
+      "Justice Halo",
+      "Judgment of Justice",
+      "Holy Contract"
+     ]
+    },
+    "4": {
+     "name": "Unshadowed",
+     "abilities": [
+      "Purification",
+      "Unshadowed Domain",
+      "Flaring Sun",
+      "Holy Eye",
+      "Holy Equipment",
+      "Unshadowed Spear"
+     ]
+    },
+    "5": {
+     "name": "Priest of Light",
+     "abilities": [
+      "Light of Holiness",
+      "Purification Halo"
+     ]
+    },
+    "6": {
+     "name": "Notary",
+     "abilities": [
+      "Notarization",
+      "Authentication",
+      "Amplification",
+      "Nullification"
+     ]
+    },
+    "7": {
+     "name": "Solar High Priest",
+     "abilities": [
+      "Sun Halo",
+      "Sun Holy Water",
+      "Holy Oath",
+      "Holy Light Summoning",
+      "Cleave of Purification",
+      "Horror Immunity"
+     ]
+    },
+    "8": {
+     "name": "Light Suppliant",
+     "abilities": [
+      "Sunshine",
+      "Blessing",
+      "Daytime",
+      "Night Vision",
+      "Knowledge (Mysticism)",
+      "Evil Detection"
+     ]
+    },
+    "9": {
+     "name": "Bard",
+     "abilities": [
+      "Singing",
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "visionary",
+    "tyrant",
+    "white_tower",
+    "hanged_man"
+   ]
+  },
+  "tyrant": {
+   "overview": "The Tyrant Pathway specialises in water and weather-related abilities. They can cast powerful water, wind, and electricity spells, gain strength in water, sing to disable their opponents, glide in the air, act freely underwater for long periods, and become enraged to increase their power.",
+   "sequences": {
+    "0": {
+     "name": "Tyrant",
+     "abilities": [
+      "Matter",
+      "Water",
+      "Seas",
+      "Aquatic Life",
+      "Divine Kingdom",
+      "Chasm of Storms"
+     ]
+    },
+    "1": {
+     "name": "Thunder God",
+     "abilities": [
+      "Incarnation of Light",
+      "Heavenly Punishment",
+      "Storm Hell",
+      "Dance of Thunder",
+      "Ocean of Lightning"
+     ]
+    },
+    "2": {
+     "name": "Calamity",
+     "abilities": [
+      "Sound of Horror",
+      "Descent of Calamity",
+      "Storm Incarnation",
+      "Source of Wrath",
+      "Lightning Manipulation",
+      "Wind Manipulation"
+     ]
+    },
+    "3": {
+     "name": "Sea King",
+     "abilities": [
+      "Wrath of the Sea",
+      "Sea Master",
+      "Enhanced Mental Attributes",
+      "Aquatic Affinity",
+      "Physical Enhancement",
+      "Balance"
+     ]
+    },
+    "4": {
+     "name": "Cataclysmic Interrer",
+     "abilities": [
+      "Hurricane",
+      "Tsunami",
+      "Earthquake",
+      "Torrential Downpour"
+     ]
+    },
+    "5": {
+     "name": "Ocean Songster",
+     "abilities": [
+      "Lightning Manipulation",
+      "Lightning Bolt Arrow",
+      "Lightning Strike",
+      "Singing",
+      "Pressure Resistance"
+     ]
+    },
+    "6": {
+     "name": "Wind-blessed",
+     "abilities": [
+      "Wind Control",
+      "Glide",
+      "Windblades",
+      "Floating Wind",
+      "Water Control",
+      "Dive"
+     ]
+    },
+    "7": {
+     "name": "Seafarer",
+     "abilities": [
+      "Navigation",
+      "Aquatic Affinity",
+      "Enhanced Mental Attributes",
+      "Enhanced Memory"
+     ]
+    },
+    "8": {
+     "name": "Folk of Rage",
+     "abilities": [
+      "Wrath",
+      "Raging Blow",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Sailor",
+     "abilities": [
+      "Aquatic Affinity",
+      "Illusory Scales",
+      "Fear Resistance",
+      "Balance",
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "visionary",
+    "sun",
+    "white_tower",
+    "hanged_man"
+   ]
+  },
+  "white_tower": {
+   "overview": "The White Tower Pathway represents the search for knowledge. In contrast to Hermit Pathway and Paragon Pathway, this pathway includes both scientific and mysticism knowledge.",
+   "sequences": {
+    "0": {
+     "name": "White Tower",
+     "abilities": [
+      "Omniscience",
+      "Principles",
+      "Astral World Ladder",
+      "Creation",
+      "Calamity",
+      "Wisdom"
+     ]
+    },
+    "1": {
+     "name": "Omniscient Eye",
+     "abilities": [
+      "Omniscience",
+      "Astral World Mentor"
+     ]
+    },
+    "2": {
+     "name": "Wisdom Angel",
+     "abilities": [
+      "Wisdom",
+      "Imitation"
+     ]
+    },
+    "3": {
+     "name": "Cognizer",
+     "abilities": [
+      "Principles",
+      "Cognizing"
+     ]
+    },
+    "4": {
+     "name": "Prophet",
+     "abilities": [
+      "Prophecy",
+      "Astral World Mystic Arts",
+      "Imitation",
+      "Analyze",
+      "Mystic Arts"
+     ]
+    },
+    "5": {
+     "name": "Mysticism Magister",
+     "abilities": [
+      "Mystic Arts",
+      "Imitation"
+     ]
+    },
+    "6": {
+     "name": "Polymath",
+     "abilities": [
+      "Analysis",
+      "Imitation"
+     ]
+    },
+    "7": {
+     "name": "Detective",
+     "abilities": [
+      "Reconstruction",
+      "Enhanced Mental Attributes",
+      "Weapon Proficiency",
+      "Physical Enhancement"
+     ]
+    },
+    "8": {
+     "name": "Student of Ratiocination",
+     "abilities": [
+      "Enhanced Mental Attributes",
+      "Ritualistic Magic"
+     ]
+    },
+    "9": {
+     "name": "Reader",
+     "abilities": [
+      "Reading",
+      "Ritualistic Magic",
+      "Enhanced Mental Attributes",
+      "Knowledge Addiction"
+     ]
+    }
+   },
+   "neighbors": [
+    "visionary",
+    "sun",
+    "tyrant",
+    "hanged_man"
+   ]
+  },
+  "hanged_man": {
+   "overview": "The Hanged Man Pathway represents Degeneration, but also sacrifice and responsibility in a positive sense. Beyonders of this pathway have innate knowledge about Ritualistic Magic and secrets entities.",
+   "sequences": {
+    "0": {
+     "name": "Hanged Man",
+     "abilities": [
+      "Darkness",
+      "Mutations",
+      "Grazing",
+      "Profane Language"
+     ]
+    },
+    "1": {
+     "name": "Dark Angel",
+     "abilities": [
+      "Profane Language",
+      "Depraved Dependents",
+      "Darkness",
+      "Grazing"
+     ]
+    },
+    "2": {
+     "name": "Profane Presbyter",
+     "abilities": [
+      "Profane Language",
+      "Flesh & Blood",
+      "Trinity Body",
+      "Grazing"
+     ]
+    },
+    "3": {
+     "name": "Trinity Templar",
+     "abilities": [
+      "Shadow Substitute",
+      "Flesh & Blood",
+      "Trinity",
+      "Flesh and Blood Immortality"
+     ]
+    },
+    "4": {
+     "name": "Black Knight",
+     "abilities": [
+      "Cull of Spiritual Flesh",
+      "Black Armor",
+      "Shadow of Depravation",
+      "Commandeering Shadows"
+     ]
+    },
+    "5": {
+     "name": "Shepherd",
+     "abilities": [
+      "Grazing",
+      "Flesh and Blood Magic",
+      "Devouring",
+      "Controlling Shadows"
+     ]
+    },
+    "6": {
+     "name": "Rose Bishop",
+     "abilities": [
+      "Flesh & Blood Magic"
+     ]
+    },
+    "7": {
+     "name": "Shadow Ascetic",
+     "abilities": [
+      "Summon Shadows",
+      "Shadow Curse",
+      "Manipulating Shadows",
+      "Shadow Lurking",
+      "Shadow Shaping"
+     ]
+    },
+    "8": {
+     "name": "Listener",
+     "abilities": [
+      "Listen",
+      "High Spirituality"
+     ]
+    },
+    "9": {
+     "name": "Secrets Suppliant",
+     "abilities": [
+      "Knowledge (Mysticism)",
+      "High Spirituality",
+      "Ritualistic Magic & Divination Arts"
+     ]
+    }
+   },
+   "neighbors": [
+    "visionary",
+    "sun",
+    "tyrant",
+    "white_tower"
+   ]
+  },
+  "darkness": {
+   "overview": "The Darkness Pathway has powers related to the night and sleep. They gain strength during nighttime, can pacify and host souls, enter others' dreams, cast area-of-effect sleep spells, see in the dark, and suppress their enemies' moods and desires.",
+   "sequences": {
+    "0": {
+     "name": "Darkness",
+     "abilities": [
+      "Concealment",
+      "Spirit Body & Spirituality",
+      "Misfortune & Catastrophe",
+      "Horror"
+     ]
+    },
+    "1": {
+     "name": "Knight of Misfortune",
+     "abilities": [
+      "Misfortune",
+      "Darkness",
+      "Servant of Darkness",
+      "Physical Enhancement"
+     ]
+    },
+    "2": {
+     "name": "Servant of Concealment",
+     "abilities": [
+      "Concealment",
+      "Concealed",
+      "Reverse Concealment",
+      "Concealed World"
+     ]
+    },
+    "3": {
+     "name": "Horror Bishop",
+     "abilities": [
+      "Sword of Darkness",
+      "Nightmare World",
+      "Horror Aura",
+      "Midnight Poem",
+      "Spirit Commanding",
+      "Dream Invasion"
+     ]
+    },
+    "4": {
+     "name": "Nightwatcher",
+     "abilities": [
+      "Night Domain",
+      "Hair Entanglement",
+      "Concealment",
+      "Curse of Misfortune",
+      "Luck Sensation"
+     ]
+    },
+    "5": {
+     "name": "Spirit Warlock",
+     "abilities": [
+      "Spirit Commanding",
+      "Dream Invasion"
+     ]
+    },
+    "6": {
+     "name": "Soul Assurer",
+     "abilities": [
+      "Requiem",
+      "High Spirituality",
+      "Ritualistic Magic & Divination Arts",
+      "Dream Invasion",
+      "Midnight Poem",
+      "Nocturnality"
+     ]
+    },
+    "7": {
+     "name": "Nightmare",
+     "abilities": [
+      "Nightmare State",
+      "Dream Shaping",
+      "Dream Invasion",
+      "Nightmare Limbs"
+     ]
+    },
+    "8": {
+     "name": "Midnight Poet",
+     "abilities": [
+      "Midnight Poem",
+      "Nocturnality"
+     ]
+    },
+    "9": {
+     "name": "Sleepless",
+     "abilities": [
+      "Nocturnality",
+      "High Spirituality",
+      "Spirit Vision",
+      "Divination Arts & Ritualistic Magic"
+     ]
+    }
+   },
+   "neighbors": [
+    "death",
+    "twilight_giant",
+    "demoness",
+    "red_priest"
+   ]
+  },
+  "death": {
+   "overview": "The Death Pathway is notable for its powers related to the dead and spirits. They can create zombies, summon spirits to fight for them, resist cold and decay, travel through the Spirit World, communicate with the dead, and have enhanced abilities to fight the undead, wraiths, and other Evil Spirits.",
+   "sequences": {
+    "0": {
+     "name": "Death",
+     "abilities": [
+      "Pallor",
+      "Endpoint",
+      "Undead",
+      "Enslavement"
+     ]
+    },
+    "1": {
+     "name": "Pale Emperor",
+     "abilities": [
+      "Enslavement",
+      "Soul Control",
+      "Sovereign of Spirits",
+      "Death",
+      "Death Decree"
+     ]
+    },
+    "2": {
+     "name": "Death Consul",
+     "abilities": [
+      "Death",
+      "Absolute Death",
+      "Nation of the Dead",
+      "Enslavement",
+      "Undead"
+     ]
+    },
+    "3": {
+     "name": "Ferryman",
+     "abilities": [
+      "Death",
+      "Physical Enhancement",
+      "Undying"
+     ]
+    },
+    "4": {
+     "name": "Undying",
+     "abilities": [
+      "Reincarnation",
+      "Underworld Authority",
+      "Sealing",
+      "Spirit World Traversal"
+     ]
+    },
+    "5": {
+     "name": "Gatekeeper",
+     "abilities": [
+      "Door to the Underworld",
+      "Internal Underworld",
+      "Physical Enhancement",
+      "Spiritual Perception"
+     ]
+    },
+    "6": {
+     "name": "Spirit Guide",
+     "abilities": [
+      "Language of the Dead",
+      "Resurrection",
+      "Spirit Channeling"
+     ]
+    },
+    "7": {
+     "name": "Spirit Medium",
+     "abilities": [
+      "Spirit Channeling",
+      "Zombie Disguise",
+      "Physical Enhancements",
+      "Spiritual Perception",
+      "Spirit Vision",
+      "Spirit Affinity"
+     ]
+    },
+    "8": {
+     "name": "Gravedigger",
+     "abilities": [
+      "Spirit Communication",
+      "Eye of Death",
+      "Physical Enhancement",
+      "Spirit Vision"
+     ]
+    },
+    "9": {
+     "name": "Corpse Collector",
+     "abilities": [
+      "Physical Enhancement",
+      "Spirit Vision"
+     ]
+    }
+   },
+   "neighbors": [
+    "darkness",
+    "twilight_giant",
+    "demoness",
+    "red_priest"
+   ]
+  },
+  "twilight_giant": {
+   "overview": "The Twilight Giant Pathway has traditional warrior abilities, both offensive and defensive. They possess extreme strength, can easily master all weapons, physically resist supernatural powers, conjure powerful Dawn light-based weapons and armour, harm evil spirits, take damage for others, and enter an almost unbreakable defensive stance.",
+   "sequences": {
+    "0": {
+     "name": "Twilight Giant",
+     "abilities": [
+      "Twilight",
+      "Dawn",
+      "Holiness",
+      "Combat",
+      "Proxy"
+     ]
+    },
+    "1": {
+     "name": "Hand of God",
+     "abilities": [
+      "Proxy",
+      "Combat",
+      "Protection"
+     ]
+    },
+    "2": {
+     "name": "Glory",
+     "abilities": [
+      "Twilight",
+      "Combat",
+      "Protection",
+      "Twilight Sword",
+      "Hurricane of Light",
+      "Holiness"
+     ]
+    },
+    "3": {
+     "name": "Silver Knight",
+     "abilities": [
+      "Mercury Liquefaction",
+      "Silver Rapier",
+      "Light Concealment",
+      "Silver Armor"
+     ]
+    },
+    "4": {
+     "name": "Demon Hunter",
+     "abilities": [
+      "Eye of Demon Hunting",
+      "Mind Concealment",
+      "Physical & Mental Enhancement",
+      "Protection",
+      "Light of Dawn"
+     ]
+    },
+    "5": {
+     "name": "Guardian",
+     "abilities": [
+      "Protection",
+      "Illusion Immunity",
+      "Strength of Giants",
+      "Supernatural Resistance"
+     ]
+    },
+    "6": {
+     "name": "Dawn Paladin",
+     "abilities": [
+      "Dawn Armor",
+      "Sword of Dawn",
+      "Hurricane of Light",
+      "Strength of Giants"
+     ]
+    },
+    "7": {
+     "name": "Weapon Master",
+     "abilities": [
+      "Weapon Mastery",
+      "Physical Enhancement"
+     ]
+    },
+    "8": {
+     "name": "Pugilist",
+     "abilities": [
+      "Supernatural Resistance",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Warrior",
+     "abilities": [
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "darkness",
+    "death",
+    "demoness",
+    "red_priest"
+   ]
+  },
+  "demoness": {
+   "overview": "The Demoness Pathway is centered around causing disaster and catastrophe. They are skilled in assassination, seduction, possess powerful ritual and curse magic, can manipulate invisible threads, incite the masses to commit crimes, and inflict disease.",
+   "sequences": {
+    "0": {
+     "name": "Demoness",
+     "abilities": [
+      "Chaos",
+      "Disease & Plague",
+      "Primordium",
+      "Dark Magic",
+      "Charm",
+      "Mirror World"
+     ]
+    },
+    "1": {
+     "name": "Apocalypse",
+     "abilities": [
+      "Mirror World",
+      "Pleasure",
+      "Disease",
+      "Dark Magic",
+      "Curses"
+     ]
+    },
+    "2": {
+     "name": "Catastrophe",
+     "abilities": [
+      "Heightened Senses",
+      "Plague",
+      "Mirror Self",
+      "Feather Fall"
+     ]
+    },
+    "3": {
+     "name": "Unaging",
+     "abilities": [
+      "Mirror Self",
+      "Petrification",
+      "Charm",
+      "Dark Magic",
+      "Mirror Substitution",
+      "Plague"
+     ]
+    },
+    "4": {
+     "name": "Despair",
+     "abilities": [
+      "Plague",
+      "Threads",
+      "Charm",
+      "Dark Magic"
+     ]
+    },
+    "5": {
+     "name": "Affliction",
+     "abilities": [
+      "Disease",
+      "Physical Enhancement",
+      "Threads",
+      "Charm",
+      "Dark Magic",
+      "Mirror Magic"
+     ]
+    },
+    "6": {
+     "name": "Pleasure",
+     "abilities": [
+      "Threads",
+      "Physical Enhancement",
+      "Heightened Senses",
+      "Charm",
+      "Dark Magic",
+      "Mirror Magic"
+     ]
+    },
+    "7": {
+     "name": "Witch",
+     "abilities": [
+      "Charm",
+      "Dark Magic",
+      "Mirror Magic",
+      "Mirror Substitution",
+      "Divination",
+      "Anti-Divination"
+     ]
+    },
+    "8": {
+     "name": "Instigator",
+     "abilities": [
+      "Instigation",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Assassin",
+     "abilities": [
+      "Shadow Concealment",
+      "Physical Enhancement",
+      "Heightened Senses",
+      "Night Vision"
+     ]
+    }
+   },
+   "neighbors": [
+    "darkness",
+    "death",
+    "twilight_giant",
+    "red_priest"
+   ]
+  },
+  "red_priest": {
+   "overview": "The Red Priest Pathway contains war-related abilities. The Red represents War and Priest represents the \"ritualist of strength.",
+   "sequences": {
+    "0": {
+     "name": "Red Priest",
+     "abilities": [
+      "Conquest",
+      "War",
+      "Courage",
+      "Fog of War",
+      "Destruction",
+      "Flames"
+     ]
+    },
+    "1": {
+     "name": "Conqueror",
+     "abilities": [
+      "Conquest",
+      "Gathering",
+      "War Commander",
+      "Sacrifices",
+      "Spear of Destruction",
+      "Galvanization"
+     ]
+    },
+    "2": {
+     "name": "Weather Warlock",
+     "abilities": [
+      "Gathering",
+      "Charm",
+      "Information-Gathering",
+      "Physical Enhancement"
+     ]
+    },
+    "3": {
+     "name": "War Bishop",
+     "abilities": [
+      "War Song & War Cry",
+      "Fog of War",
+      "Sacrifice",
+      "Gathering"
+     ]
+    },
+    "4": {
+     "name": "Iron-blooded Knight",
+     "abilities": [
+      "Weaponizing",
+      "Chain of Command",
+      "Galvanization",
+      "Courage",
+      "Physical Enhancement"
+     ]
+    },
+    "5": {
+     "name": "Reaper",
+     "abilities": [
+      "Weakness Investigation",
+      "Cull",
+      "Precision",
+      "Physical Enhancement",
+      "Enhanced Mental Attributes"
+     ]
+    },
+    "6": {
+     "name": "Conspirer",
+     "abilities": [
+      "Flame Transformation",
+      "Enhanced Mental Attributes",
+      "Information-Gathering",
+      "Physical Enhancement"
+     ]
+    },
+    "7": {
+     "name": "Pyromaniac",
+     "abilities": [
+      "Pyrokinesis",
+      "Fire Resistance",
+      "Spirit Vision",
+      "Danger Intuition"
+     ]
+    },
+    "8": {
+     "name": "Provoker",
+     "abilities": [
+      "Provocation",
+      "Physical Enhancement",
+      "Spirit Vision"
+     ]
+    },
+    "9": {
+     "name": "Hunter",
+     "abilities": [
+      "Physical Enhancement",
+      "Heightened Senses",
+      "Ritualistic Magic",
+      "Spirit Vision",
+      "Danger Intuition"
+     ]
+    }
+   },
+   "neighbors": [
+    "darkness",
+    "death",
+    "twilight_giant",
+    "demoness"
+   ]
+  },
+  "hermit": {
+   "overview": "The Hermit Pathway seems to specialize in knowledge of the mystical and occult world. They have good ritual magic abilities, cast various spells and make scrolls with corresponding materials, as well as conjure and manipulate stars.",
+   "sequences": {
+    "0": {
+     "name": "Hermit",
+     "abilities": [
+      "Mysticism Knowledge",
+      "Backup",
+      "Hiding",
+      "Education",
+      "Mystery Prying",
+      "Spirit World Mentor"
+     ]
+    },
+    "1": {
+     "name": "Knowledge Emperor",
+     "abilities": [
+      "Mysticism Knowledge",
+      "Digital Avatar",
+      "Education",
+      "Mystery Prying"
+     ]
+    },
+    "2": {
+     "name": "Sage",
+     "abilities": [
+      "Mysticism Knowledge",
+      "Education",
+      "Mystery Prying",
+      "Mystical Re-enactment"
+     ]
+    },
+    "3": {
+     "name": "Clairvoyant",
+     "abilities": [
+      "Mystery Prying",
+      "Mystical Re-enactment",
+      "Eyes of Mystery Prying"
+     ]
+    },
+    "4": {
+     "name": "Mysticologist",
+     "abilities": [
+      "Mystical Re-enactment",
+      "Eyes of Mystery Prying",
+      "Star Pillar"
+     ]
+    },
+    "5": {
+     "name": "Constellations Master",
+     "abilities": [
+      "Starlight Cage",
+      "Star Pillar",
+      "Stellar Self",
+      "Starry Sea Shuttle",
+      "Star Concealment",
+      "Star Bridge"
+     ]
+    },
+    "6": {
+     "name": "Scrolls Professor",
+     "abilities": [
+      "Scroll Making"
+     ]
+    },
+    "7": {
+     "name": "Warlock",
+     "abilities": [
+      "Spellcasting",
+      "Eyes of Mystery Prying"
+     ]
+    },
+    "8": {
+     "name": "Melee Scholar",
+     "abilities": [
+      "Combat Prying",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Mystery Pryer",
+     "abilities": [
+      "Eyes of Mystery Prying",
+      "Quick Rituals",
+      "Magic & Divination Arts",
+      "Spirit Vision"
+     ]
+    }
+   },
+   "neighbors": [
+    "paragon"
+   ]
+  },
+  "paragon": {
+   "overview": "The Paragon Pathway specialises in knowledge of the natural world and crafting items. They have excellent scientific knowledge, historical knowledge, mechanical knowledge, can create powerful Beyonder weapons, and have an intuitive knowledge of using and avoiding the drawbacks of sealed items.",
+   "sequences": {
+    "0": {
+     "name": "Paragon",
+     "abilities": [
+      "Reality Knowledge",
+      "Civilization",
+      "Principles",
+      "Education",
+      "Learning",
+      "Manufacturing"
+     ]
+    },
+    "1": {
+     "name": "Illuminator",
+     "abilities": [
+      "Civilization",
+      "Manufacturing",
+      "Education"
+     ]
+    },
+    "2": {
+     "name": "Knowledge Magister",
+     "abilities": [
+      "Manufacturing",
+      "Principles",
+      "Analysis",
+      "Mentor",
+      "Learning"
+     ]
+    },
+    "3": {
+     "name": "Arcane Scholar",
+     "abilities": [
+      "Knowledge Spirit",
+      "Environment Controller",
+      "Absorption",
+      "Dissociation"
+     ]
+    },
+    "4": {
+     "name": "Alchemist",
+     "abilities": [
+      "Alchemy",
+      "Manufacturing"
+     ]
+    },
+    "5": {
+     "name": "Astronomer",
+     "abilities": [
+      "Astronomy",
+      "False Constellations",
+      "Star of Curses",
+      "Blessing of Stars"
+     ]
+    },
+    "6": {
+     "name": "Artisan",
+     "abilities": [
+      "Manufacturing"
+     ]
+    },
+    "7": {
+     "name": "Appraiser",
+     "abilities": [
+      "Appraisal"
+     ]
+    },
+    "8": {
+     "name": "Archaeologist",
+     "abilities": [
+      "Physical Enhancements"
+     ]
+    },
+    "9": {
+     "name": "Savant",
+     "abilities": []
+    }
+   },
+   "neighbors": [
+    "hermit"
+   ]
+  },
+  "wheel_of_fortune": {
+   "overview": "Wheel of Fortune Pathway, more commonly referred to as Fate Pathway, represents the Possibility of one's Fate and represents Chaos. It holds authorities over Fate, Probability, Cycle, and Disorder, as well as the subordinate authorities of Good Luck, Bad Luck, Foresight, Save, and Select.",
+   "sequences": {
+    "0": {
+     "name": "Wheel of Fortune",
+     "abilities": [
+      "Fate",
+      "Foresight",
+      "Good Luck",
+      "Probability",
+      "Cycle",
+      "Disorder"
+     ]
+    },
+    "1": {
+     "name": "Snake of Mercury",
+     "abilities": [
+      "Cycle",
+      "Cycle of Fate",
+      "Words of Fortune & Misfortune"
+     ]
+    },
+    "2": {
+     "name": "Soothsayer",
+     "abilities": [
+      "Fate",
+      "Prophecy",
+      "Revelation of Fate",
+      "Connection of Fate",
+      "Words of Fortune & Misfortune"
+     ]
+    },
+    "3": {
+     "name": "Chaoswalker",
+     "abilities": [
+      "Fate Keeper",
+      "Spiritual Baptism",
+      "Disorder"
+     ]
+    },
+    "4": {
+     "name": "Misfortune Mage",
+     "abilities": [
+      "Misfortune Field",
+      "Group Blessing",
+      "Blessing",
+      "Absolute Perception"
+     ]
+    },
+    "5": {
+     "name": "Winner",
+     "abilities": [
+      "Curse of Misfortune",
+      "Foresight",
+      "Passive Luck",
+      "Psyche Storm"
+     ]
+    },
+    "6": {
+     "name": "Calamity Priest",
+     "abilities": [
+      "Calamity Attraction",
+      "Passive Attraction",
+      "Active Attraction",
+      "Psyche Storm"
+     ]
+    },
+    "7": {
+     "name": "Lucky One",
+     "abilities": [
+      "Passive Luck"
+     ]
+    },
+    "8": {
+     "name": "Robot",
+     "abilities": [
+      "Physical Enhancement",
+      "Mental Enhancement",
+      "Perception"
+     ]
+    },
+    "9": {
+     "name": "Monster",
+     "abilities": [
+      "Perception"
+     ]
+    }
+   },
+   "neighbors": []
+  },
+  "mother": {
+   "overview": "The Mother Pathway has life, plant, and earth-related abilities. They also dabble in the field of healing and genetics, in terms of both the physical and the soul body.",
+   "sequences": {
+    "0": {
+     "name": "Mother",
+     "abilities": [
+      "Earth",
+      "Nature",
+      "Death",
+      "Life",
+      "Bountiful Earth",
+      "Return"
+     ]
+    },
+    "1": {
+     "name": "Naturewalker",
+     "abilities": [
+      "Child of Nature",
+      "World Creation"
+     ]
+    },
+    "2": {
+     "name": "Desolate Matriarch",
+     "abilities": [
+      "Desolation",
+      "Evil Spirit Transformation",
+      "Artificial Life Creation",
+      "Mythical Creature Transformation",
+      "Life Deprivation"
+     ]
+    },
+    "3": {
+     "name": "Pallbearer",
+     "abilities": [
+      "Death & Return",
+      "Evil Spirit Transformation",
+      "Life Deprivation",
+      "Return to Earth",
+      "Maternal Embrace"
+     ]
+    },
+    "4": {
+     "name": "Ancient Alchemist",
+     "abilities": [
+      "Mutation",
+      "Artificial Life Creation",
+      "Creature Commanding",
+      "Life Aura",
+      "Healing",
+      "Animal Transformation"
+     ]
+    },
+    "5": {
+     "name": "Druid",
+     "abilities": [
+      "Underground Travel",
+      "Wrath of Nature",
+      "Swamp",
+      "Child of the Oak",
+      "Golem Creation",
+      "Animal Transformation"
+     ]
+    },
+    "6": {
+     "name": "Biologist",
+     "abilities": [
+      "Cross-breeding",
+      "Poison Creation",
+      "Knowledge (Life)"
+     ]
+    },
+    "7": {
+     "name": "Harvest Priest",
+     "abilities": [
+      "Seed Catalyzation",
+      "Plant & Insect Commanding",
+      "Physical Enhancement",
+      "Healing",
+      "Disease Treatment"
+     ]
+    },
+    "8": {
+     "name": "Doctor",
+     "abilities": [
+      "Healing",
+      "Surgical Mastery",
+      "Treatments",
+      "Giving Life",
+      "Time Distinguishment"
+     ]
+    },
+    "9": {
+     "name": "Planter",
+     "abilities": [
+      "Farming Proficiency",
+      "Weather Forecasting",
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "moon"
+   ]
+  },
+  "moon": {
+   "overview": "The Moon Pathway has powerful healing abilities, as well as the enhancement of biological targets. They can create powerful healing and buffing potions, tame animals, regenerate, and cast darkness spells.",
+   "sequences": {
+    "0": {
+     "name": "Moon",
+     "abilities": [
+      "Summoning",
+      "Beauty",
+      "Life",
+      "Darkness",
+      "Bizarreness"
+     ]
+    },
+    "1": {
+     "name": "Beauty Goddess",
+     "abilities": [
+      "Beauty",
+      "Moon"
+     ]
+    },
+    "2": {
+     "name": "Life-Giver",
+     "abilities": [
+      "Life",
+      "Moonlight Transformation",
+      "Door of Summoning",
+      "Bat Wings",
+      "Full Moon"
+     ]
+    },
+    "3": {
+     "name": "High Summoner",
+     "abilities": [
+      "Door of Summoning",
+      "Summoning",
+      "Bat Wing Isolation",
+      "Full Moon",
+      "Physical Enhancement"
+     ]
+    },
+    "4": {
+     "name": "Shaman King",
+     "abilities": [
+      "Nature Interaction",
+      "Moon Paper Figurine",
+      "Gaze of Darkness",
+      "Illusory Bats"
+     ]
+    },
+    "5": {
+     "name": "Scarlet Scholar",
+     "abilities": [
+      "Full Moon",
+      "Physical Enhancement",
+      "Potion & Perfume Crafting"
+     ]
+    },
+    "6": {
+     "name": "Potions Professor",
+     "abilities": [
+      "Discerning Spiritual Materials",
+      "Potion & Perfume Crafting",
+      "Physical Enhancement"
+     ]
+    },
+    "7": {
+     "name": "Vampire",
+     "abilities": [
+      "Wings of Darkness",
+      "Corrosive Claw",
+      "Abyss Shackles",
+      "The Embrace"
+     ]
+    },
+    "8": {
+     "name": "Beast Tamer",
+     "abilities": [
+      "Animal Senses",
+      "Physical Enhancement",
+      "Taming"
+     ]
+    },
+    "9": {
+     "name": "Apothecary",
+     "abilities": [
+      "Medicinal Concoction",
+      "Taming",
+      "Physical Enhancement",
+      "Spirit Vision"
+     ]
+    }
+   },
+   "neighbors": [
+    "mother"
+   ]
+  },
+  "abyss": {
+   "overview": "The Abyss Pathway has demonic and devil-related abilities. They have high strength, perception, can cast ritual and sacrificial spells, control and corrupt the desires of others, detect danger intuitively, increase in size, resist mental, poison, and curse attacks, and buff themselves for more strength and defense.",
+   "sequences": {
+    "0": {
+     "name": "Abyss",
+     "abilities": [
+      "Degeneration (Depravity)",
+      "Corruption",
+      "Filth",
+      "Toxins",
+      "Desires",
+      "Curses"
+     ]
+    },
+    "1": {
+     "name": "Filthy Monarch",
+     "abilities": [
+      "King of Filth",
+      "The Corroder",
+      "Flames of the Abyss"
+     ]
+    },
+    "2": {
+     "name": "Bloody Archduke",
+     "abilities": [
+      "Malice",
+      "Malice Incarnation",
+      "Body",
+      "Blood Sovereign"
+     ]
+    },
+    "3": {
+     "name": "Blatherer",
+     "abilities": [
+      "Corruption"
+     ]
+    },
+    "4": {
+     "name": "Demon",
+     "abilities": [
+      "Language of Foulness",
+      "Desire Control"
+     ]
+    },
+    "5": {
+     "name": "Desire Apostle",
+     "abilities": [
+      "Desire Control",
+      "Mental Shock",
+      "Desire Incarnation"
+     ]
+    },
+    "6": {
+     "name": "Devil",
+     "abilities": [
+      "Devil Transformation",
+      "Sulfur Fireball",
+      "Sword of Lava",
+      "Flame Cage",
+      "Language of Foulness",
+      "Slow"
+     ]
+    },
+    "7": {
+     "name": "Serial Killer",
+     "abilities": [
+      "Knowledge (Devil Worship)",
+      "Interference",
+      "Physical Enhancements",
+      "Enhanced Mental Attributes"
+     ]
+    },
+    "8": {
+     "name": "Unwinged Angel",
+     "abilities": [
+      "Demonic Attribute",
+      "Physical Enhancement",
+      "Enhanced Mental Attributes"
+     ]
+    },
+    "9": {
+     "name": "Criminal",
+     "abilities": [
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "chained"
+   ]
+  },
+  "chained": {
+   "overview": "The Chained Pathway has different types of mutant abilities, but they're also cursed. They can summon zombies, jump through things with reflections, resist bullets with powerful defence, possess others, control ghosts, cast death-related spells, regenerate and heal themselves, and sacrifice rationality for more power.",
+   "sequences": {
+    "0": {
+     "name": "Chained",
+     "abilities": [
+      "Curses",
+      "Deviants",
+      "Objects",
+      "Thorn Paradise"
+     ]
+    },
+    "1": {
+     "name": "Abomination",
+     "abilities": [
+      "Deviants",
+      "Transformation",
+      "Curses",
+      "Evil Abomination"
+     ]
+    },
+    "2": {
+     "name": "Ancient Bane",
+     "abilities": [
+      "Bane",
+      "Spirit Influence",
+      "Curses",
+      "Source of Curses",
+      "Transfiguration Curse",
+      "History"
+     ]
+    },
+    "3": {
+     "name": "Disciple of Silence",
+     "abilities": [
+      "Silent Curse Brewing",
+      "Evil Spirit Transformation",
+      "Source of Curses",
+      "Transfiguration Curse"
+     ]
+    },
+    "4": {
+     "name": "Puppet",
+     "abilities": [
+      "Source of Curses",
+      "Poltergeist",
+      "Performance",
+      "Objectification"
+     ]
+    },
+    "5": {
+     "name": "Wraith",
+     "abilities": [
+      "Wraith Transformation",
+      "Invisibility",
+      "Wraith Shriek",
+      "Wraith Possession",
+      "Mirror Blink",
+      "Resurrection"
+     ]
+    },
+    "6": {
+     "name": "Zombie",
+     "abilities": [
+      "Zombie Transformation",
+      "Zombie Strength",
+      "Ice Control",
+      "Zombie Manipulation"
+     ]
+    },
+    "7": {
+     "name": "Werewolf",
+     "abilities": [
+      "Werewolf Transformation",
+      "Anti-Divination",
+      "Physical Enhancement"
+     ]
+    },
+    "8": {
+     "name": "Lunatic",
+     "abilities": [
+      "Berserk",
+      "Binding"
+     ]
+    },
+    "9": {
+     "name": "Prisoner",
+     "abilities": [
+      "Physical Enhancement",
+      "Binding"
+     ]
+    }
+   },
+   "neighbors": [
+    "abyss"
+   ]
+  },
+  "black_emperor": {
+   "overview": "The Black Emperor Pathway manipulates existing rules to suit their interests. They are proficient at loophole exploitation, possess extreme physicality, use bribery to achieve various effects, distort words, actions, and intent, disorder all sorts of things, and dominate others.",
+   "sequences": {
+    "0": {
+     "name": "Black Emperor",
+     "abilities": [
+      "Autocrat",
+      "Distortion",
+      "Resurrection",
+      "Disorder",
+      "Divine Kingdom"
+     ]
+    },
+    "1": {
+     "name": "Prince of Abolition",
+     "abilities": []
+    },
+    "2": {
+     "name": "Duke of Entropy",
+     "abilities": [
+      "Disorder",
+      "Entropy",
+      "Exploit",
+      "Strata",
+      "Superior"
+     ]
+    },
+    "3": {
+     "name": "Frenzied Mage",
+     "abilities": [
+      "Strata",
+      "Superior",
+      "Disorder",
+      "Frenzy"
+     ]
+    },
+    "4": {
+     "name": "Earl of the Fallen",
+     "abilities": [
+      "Exploit",
+      "Bestowment",
+      "Magnify",
+      "Disorder",
+      "Bribe",
+      "Distortion"
+     ]
+    },
+    "5": {
+     "name": "Mentor of Disorder",
+     "abilities": [
+      "Disorder",
+      "Commanding Presence",
+      "Physical Enhancement",
+      "Distortion"
+     ]
+    },
+    "6": {
+     "name": "Baron of Corruption",
+     "abilities": [
+      "Distortion",
+      "Corrosion",
+      "Physical Enhancement"
+     ]
+    },
+    "7": {
+     "name": "Briber",
+     "abilities": [
+      "Bribe"
+     ]
+    },
+    "8": {
+     "name": "Barbarian",
+     "abilities": [
+      "Physical Enhancement",
+      "Mental Resistance"
+     ]
+    },
+    "9": {
+     "name": "Lawyer",
+     "abilities": [
+      "Eloquence",
+      "Law Proficiency"
+     ]
+    }
+   },
+   "neighbors": [
+    "justiciar"
+   ]
+  },
+  "justiciar": {
+   "overview": "The Justiciar Pathway is about defending Order. It is strong at setting laws and punishing lawbreakers.",
+   "sequences": {
+    "0": {
+     "name": "Justiciar",
+     "abilities": [
+      "Order",
+      "Order Proxy",
+      "Judgment",
+      "Disorder",
+      "Balance",
+      "Divine Kingdom"
+     ]
+    },
+    "1": {
+     "name": "Hand of Order",
+     "abilities": [
+      "Order",
+      "Order Proxy"
+     ]
+    },
+    "2": {
+     "name": "Balancer",
+     "abilities": [
+      "Balance",
+      "Laws"
+     ]
+    },
+    "3": {
+     "name": "Chaos Hunter",
+     "abilities": [
+      "Balancing",
+      "Disorder",
+      "Judgment",
+      "Sword of Judgment"
+     ]
+    },
+    "4": {
+     "name": "Imperative Mage",
+     "abilities": [
+      "Imperatives",
+      "Contracts",
+      "Physical Enhancement",
+      "Supernatural Intuition",
+      "Authority"
+     ]
+    },
+    "5": {
+     "name": "Disciplinary Paladin",
+     "abilities": [
+      "Punishment",
+      "Physical Enhancements",
+      "Enhanced Mental Attributes",
+      "Authority"
+     ]
+    },
+    "6": {
+     "name": "Judge",
+     "abilities": [
+      "Authority",
+      "Jurisdiction"
+     ]
+    },
+    "7": {
+     "name": "Interrogator",
+     "abilities": [
+      "Illusory Torture Devices",
+      "Psychic Lashing",
+      "Psychic Piercing",
+      "Whip of Pain",
+      "Demolition Proficiency"
+     ]
+    },
+    "8": {
+     "name": "Sheriff",
+     "abilities": [
+      "Jurisdiction",
+      "Recognition",
+      "Weapon Proficiency",
+      "Physical Enhancement"
+     ]
+    },
+    "9": {
+     "name": "Arbiter",
+     "abilities": [
+      "Authority",
+      "Order",
+      "Physical Enhancement"
+     ]
+    }
+   },
+   "neighbors": [
+    "black_emperor"
+   ]
+  }
+ }
+}
