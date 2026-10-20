@@ -1,0 +1,26 @@
+[
+  {
+    "name": "hall",
+    "depth": 0.2
+  },
+  {
+    "name": "table",
+    "depth": 0.5
+  },
+  {
+    "name": "wisp",
+    "depth": 0.6
+  },
+  {
+    "name": "drift",
+    "depth": 0.8
+  },
+  {
+    "name": "bank",
+    "depth": 1
+  },
+  {
+    "name": "front",
+    "depth": 2.4
+  }
+]

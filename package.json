@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "shoot": "node scripts/shoot.mjs",
     "wiki": "node scripts/wiki/fetch.mjs && lua scripts/wiki/dump.lua scripts/wiki/cache/Module_Sequence_standard.txt > scripts/wiki/cache/sequences.json && node scripts/wiki/build.mjs",
-    "wiki:build": "node scripts/wiki/build.mjs"
+    "wiki:build": "node scripts/wiki/build.mjs",
+    "official": "node scripts/official.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",

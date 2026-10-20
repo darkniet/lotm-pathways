@@ -1051,30 +1051,106 @@ button {
 .title-screen {
   position: fixed;
   inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(20px, 4.5vh, 48px);
-  padding: calc(var(--gutter) + var(--safe-top)) var(--gutter) calc(var(--gutter) + var(--safe-bottom) + 40px);
-  text-align: center;
+  display: grid;
+  place-items: start center;
+  overflow: hidden;
   cursor: pointer;
   pointer-events: auto;
+  outline: none;
+  --px: 0;
+  --py: 0;
+}
+
+/* The official parallax scene: full-frame layers, nearer ones move further. */
+.title-scene {
+  position: absolute;
+  inset: 0;
+  background: #000;
+}
+
+.scene-layer {
+  position: absolute;
+  inset: 0;
+  transform: translate(calc(var(--px) * var(--d) * -1.6), calc(var(--py) * var(--d) * -1.2)) scale(1.08);
+  transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+.scene-zoom {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 58%;
+}
+
+.scene-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.scene-layer img.fog {
+  animation: fog-drift var(--dur, 28s) ease-in-out infinite alternate;
+}
+
+.fog-wisp { --dur: 23s; --amp: 2.2%; }
+.fog-drift { --dur: 31s; --amp: -1.8%; }
+.fog-bank { --dur: 37s; --amp: 1.4%; }
+.fog-front { --dur: 19s; --amp: -2.6%; }
+
+@keyframes fog-drift {
+  from { transform: translateX(calc(var(--amp) * -1)) scale(1.02); }
+  to { transform: translateX(var(--amp)) scale(1.06); }
+}
+
+/* The far hall's light breathes like a flame behind the pillars. */
+.scene-layer img.hall {
+  animation: hall-light 7s ease-in-out infinite;
+}
+
+@keyframes hall-light {
+  0%, 100% { filter: brightness(1); }
+  40% { filter: brightness(1.12); }
+  55% { filter: brightness(0.96); }
+  70% { filter: brightness(1.08); }
+}
+
+/* Vignette, plus a soft shadow behind the logo so the silver reads on any frame. */
+.title-scene::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 38% at 50% 27%, rgb(0 0 0 / 0.45), transparent 70%),
+    radial-gradient(ellipse at 50% 50%, transparent 55%, rgb(0 0 0 / 0.7));
+  box-shadow: inset 0 0 120px 20px #000;
+}
+
+.title-dust {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
 }
 
 .logo-stage {
   position: relative;
   display: grid;
   place-items: center;
-  width: min(860px, 84vw, 92vh * 1.49);
+  /* Hangs between the pillars, above the table rather than on it. */
+  width: min(660px, 74vw, 50vh * 1.49);
+  margin-top: calc(max(4vh, 24px) + var(--safe-top));
 }
 
 .logo-wrap {
   width: 100%;
   filter:
-    drop-shadow(0 0 26px color-mix(in srgb, var(--gilt) 34%, transparent))
-    drop-shadow(0 0 2px color-mix(in srgb, var(--gilt-pale) 60%, transparent))
-    drop-shadow(0 10px 36px rgb(0 0 0 / 0.65));
+    drop-shadow(0 0 30px color-mix(in srgb, var(--gilt) 32%, transparent))
+    drop-shadow(0 0 2px color-mix(in srgb, var(--gilt-pale) 70%, transparent))
+    drop-shadow(0 12px 40px rgb(0 0 0 / 0.8));
 }
 
 .logo-float {
@@ -1105,7 +1181,7 @@ button {
   background: linear-gradient(105deg, transparent 40%, #fff3d2 48.5%, #ffffff 50%, #fff3d2 51.5%, transparent 60%);
   background-size: 300% 100%;
   background-position: 120% 0;
-  animation: logo-sheen 8s ease-in-out 2.6s infinite;
+  animation: logo-sheen 8s ease-in-out 3s infinite;
 }
 
 .logo-burst {
@@ -1136,92 +1212,71 @@ button {
   30%, 100% { background-position: -20% 0; }
 }
 
-.title-under {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-}
-
-.title-sub {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 0;
-  font-family: var(--f-display);
-  font-size: clamp(15px, 1.5vw, 21px);
-  letter-spacing: 0.16em;
-  color: var(--vellum);
-  text-shadow: 0 0 18px var(--void);
-}
-
-.title-sub::before,
-.title-sub::after {
-  content: '';
-  width: clamp(28px, 6vw, 72px);
-  height: 1px;
-  background: linear-gradient(to var(--dir, right), transparent, var(--gilt));
-}
-
-.title-sub::after {
-  --dir: left;
-}
-
-.enter-btn {
-  margin-top: 6px;
-  padding: 11px 30px 12px;
-  font-size: 19px;
-  letter-spacing: 0.02em;
-  color: var(--gilt-pale);
-  background: color-mix(in srgb, var(--deep) 45%, transparent);
-  border: 1px solid color-mix(in srgb, var(--gilt) 60%, transparent);
-  box-shadow:
-    inset 0 0 0 4px color-mix(in srgb, var(--void) 35%, transparent),
-    inset 0 0 0 5px color-mix(in srgb, var(--gilt) 22%, transparent);
-  backdrop-filter: blur(4px);
-  cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s, color 0.2s;
-}
-
-.enter-btn:hover {
-  color: #fff8e6;
-  background: color-mix(in srgb, var(--deep) 75%, transparent);
-  border-color: var(--gilt);
-  box-shadow:
-    inset 0 0 0 4px color-mix(in srgb, var(--void) 35%, transparent),
-    inset 0 0 0 5px color-mix(in srgb, var(--gilt) 35%, transparent),
-    0 0 28px color-mix(in srgb, var(--gilt) 30%, transparent);
-}
-
-.title-hint {
-  margin: 0;
-  font-size: 15px;
-  font-style: italic;
-  color: var(--mist);
-}
-
-.title-credit {
-  position: fixed;
+/* The only call to action is wordless: a gilt ring that breathes, with a ripple. */
+.enter-glyph {
+  position: absolute;
   left: 50%;
-  bottom: calc(var(--gutter) + var(--safe-bottom));
-  transform: translateX(-50%);
-  width: min(62ch, calc(100% - 2 * var(--gutter)));
-  margin: 0;
-  font-size: 13.5px;
-  font-style: italic;
-  line-height: 1.4;
-  color: color-mix(in srgb, var(--mist) 75%, transparent);
+  bottom: calc(9vh + var(--safe-bottom));
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  border: 1px solid color-mix(in srgb, var(--gilt-pale) 75%, transparent);
+  border-radius: 50%;
+  box-shadow: 0 0 14px color-mix(in srgb, var(--gilt) 45%, transparent), inset 0 0 10px color-mix(in srgb, var(--gilt) 30%, transparent);
+  animation: glyph-breathe 2.8s ease-in-out infinite;
+}
+
+.enter-glyph::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  transform: rotate(45deg);
+  background: var(--gilt-pale);
+  box-shadow: 0 0 10px var(--gilt-pale);
+}
+
+.enter-glyph::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--gilt-pale) 60%, transparent);
+  animation: glyph-ripple 2.8s ease-out infinite;
+}
+
+.title-screen:hover .enter-glyph,
+.title-screen:focus-visible .enter-glyph {
+  border-color: var(--gilt-pale);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--gilt) 70%, transparent), inset 0 0 12px color-mix(in srgb, var(--gilt) 45%, transparent);
+}
+
+/* Scale only: opacity stays free for the fade-out framer-motion drives on leaving. */
+@keyframes glyph-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes glyph-ripple {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(2.3); opacity: 0; }
+}
+
+.is-mobile .logo-stage {
+  width: 86vw;
+  margin-top: calc(15vh + var(--safe-top));
 }
 
 @media (prefers-reduced-motion: reduce) {
   .logo-float,
-  .logo-mark::after {
+  .logo-mark::after,
+  .scene-layer img.fog,
+  .scene-layer img.hall,
+  .enter-glyph,
+  .enter-glyph::after {
     animation: none;
-  }
-}
-
-@media (hover: none) {
-  .title-hint {
-    display: none;
   }
 }

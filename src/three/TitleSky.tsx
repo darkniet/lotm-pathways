@@ -6,8 +6,8 @@ import { smoothstep } from '../lib/random'
 import { useExplorer } from '../state/explorer'
 import { noiseGLSL } from './shaders'
 
-// The title screen's sky: banks of gray fog the camera pushes through on entering,
-// and the crimson moon behind them. Both exist only around the title.
+// Banks of gray fog the camera pushes through while leaving the title screen. They are
+// hidden behind the title's own scene until it fades, then rush past during the dive.
 
 const planeVS = /* glsl */ `
 varying vec2 vUv;
@@ -28,24 +28,6 @@ void main() {
   d *= smoothstep(1.05, 0.5, length(p * vec2(0.85, 1.2)));
   vec3 c = mix(uColor, uColor * 1.7, smoothstep(0.7, 0.95, n));
   gl_FragColor = vec4(c, d * uOpacity);
-}
-`
-
-const moonFS = /* glsl */ `
-${noiseGLSL}
-uniform float uAmount; uniform float uTime;
-varying vec2 vUv;
-void main() {
-  vec2 p = (vUv - 0.5) * 2.0;
-  float R = 0.38;
-  float r = length(p);
-  float disc = smoothstep(R + 0.004, R - 0.004, r);
-  float z = sqrt(max(0.0, R * R - r * r)) / R;
-  float maria = fbm(p * 5.0 + 2.3) * 0.7 + fbm(p * 13.0 - 1.1) * 0.3;
-  vec3 surface = vec3(0.62, 0.035, 0.05) * (0.35 + 0.65 * z) * (0.7 + 0.5 * smoothstep(0.35, 0.7, maria));
-  float rim = exp(-max(r - R, 0.0) * 14.0) * 0.5 + exp(-max(r - R, 0.0) * 4.0) * 0.18;
-  vec3 glow = vec3(0.7, 0.05, 0.06) * rim * (1.0 - disc);
-  gl_FragColor = vec4((surface * disc * 1.35 + glow) * uAmount, 1.0);
 }
 `
 
@@ -88,23 +70,6 @@ export function TitleSky() {
     [],
   )
 
-  const moon = useMemo(() => {
-    const material = new THREE.ShaderMaterial({
-      uniforms: { uAmount: { value: 0 }, uTime: { value: 0 } },
-      vertexShader: planeVS,
-      fragmentShader: moonFS,
-      transparent: true,
-      depthWrite: false,
-      blending: THREE.AdditiveBlending,
-      toneMapped: false,
-    })
-    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), material)
-    mesh.position.set(24, 15.5, -30)
-    mesh.scale.setScalar(16)
-    mesh.renderOrder = -14
-    return { mesh, material }
-  }, [])
-
   useFrame((state, rawDt) => {
     const dt = Math.min(rawDt, 0.05)
     const s = useExplorer.getState()
@@ -117,7 +82,6 @@ export function TitleSky() {
     if (!visible) return
 
     const camZ = state.camera.position.z
-    const entering = s.phase === 'enter' ? smoothstep(0, 1, (t - s.phaseStart) / 1.4) : 0
     const appear = s.reduced ? 1 : smoothstep(0, 2.2, t)
     for (const b of banks) {
       // A bank thins out as the camera reaches it, so flying through never shows a wall.
@@ -125,13 +89,10 @@ export function TitleSky() {
       b.material.uniforms.uOpacity.value = b.opacity * near * level.current * appear
       b.material.uniforms.uTime.value = s.reduced ? 0 : t
     }
-    moon.material.uniforms.uAmount.value = (1 - entering * 0.8) * level.current * appear
-    moon.material.uniforms.uTime.value = t
   })
 
   return (
     <group ref={group}>
-      <primitive object={moon.mesh} />
       {banks.map((b, i) => (
         <primitive key={i} object={b.mesh} />
       ))}

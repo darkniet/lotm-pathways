@@ -112,7 +112,7 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
 
       {!mobile && (
         <motion.p className="credit" initial={{ opacity: 0 }} animate={{ opacity: shown ? 1 : 0 }} transition={{ duration: 1, delay: delay ? 2.8 : 0 }}>
-          A fan-made explorer. Pathway symbols from the official LoM Encyclopedica; Sequence records from the Lord of the Mysteries Wiki (CC BY-SA 3.0).
+          A fan-made explorer. Logo, title art and pathway symbols from the official Lord of the Mysteries site; Sequence records from the Lord of the Mysteries Wiki (CC BY-SA 3.0).
         </motion.p>
       )}
     </>
