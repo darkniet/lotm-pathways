@@ -389,6 +389,16 @@ function abilityNames(sections, seqName) {
 const GROUPS = { ED: ['darkness', 'death', 'twilight_giant'], CoD: ['demoness', 'red_priest'] }
 const idByName = Object.fromEntries(Object.entries(PATHWAYS).map(([id, n]) => [n, id]))
 
+/** The power the pathway's neighbor group sits under, and its Sefirah, as the wiki names them. */
+function groupOf(text) {
+  const block = text.match(/Neighboring Pathways[\s\S]*?(?=Compatible Pathways|^==[^=])/m)?.[0] ?? ''
+  const fromNeighbors = block.match(/Pathways under the \{\{Seq\|([^}|]+)/i)?.[1]
+  const fromInfobox = text.match(/\|\s*above_the_sequence\s*=\s*\{\{seq\|([^}|]+)/i)?.[1]
+  const sefirot = text.match(/\|\s*sefirot\s*=\s*\{\{Seq\|([^}]+)\}\}/i)?.[1]
+  const sefirah = sefirot ? sefirot.split('|').pop().trim() : ''
+  return { group: (fromNeighbors || fromInfobox || '').trim(), sefirah }
+}
+
 function neighborsOf(id, text) {
   const block = text.match(/Neighboring Pathways[\s\S]*?(?=Compatible Pathways|^==[^=])/m)?.[0] ?? ''
   const out = new Set()
@@ -454,10 +464,13 @@ for (const [id, name] of Object.entries(PATHWAYS)) {
   }
 
   neighbors[id] = neighborsOf(id, mainText)
+  const { group, sefirah } = groupOf(mainText)
   const ov = overview(mainText)
   const ovText = ov.map((it) => plain(it.t)).join(' ')
   const firstTwo = (ovText.match(/[^.!?]+[.!?]+/g) || [ovText]).slice(0, 2).join('').trim()
   summaries[id].overview = firstTwo
+  summaries[id].group = group
+  summaries[id].sefirah = sefirah
 
   const record = {
     id,
@@ -477,6 +490,15 @@ for (const [id, name] of Object.entries(PATHWAYS)) {
 for (const [id, set] of Object.entries(neighbors)) for (const n of set) neighbors[n].add(id)
 const order = Object.keys(PATHWAYS)
 for (const id of order) summaries[id].neighbors = order.filter((n) => neighbors[id].has(n))
+// Neighbors share a group and a Sefirah; fill a page's missing value from its neighbors.
+for (const id of order) {
+  for (const key of ['group', 'sefirah']) {
+    if (summaries[id][key]) continue
+    const from = summaries[id].neighbors.map((n) => summaries[n][key]).find(Boolean)
+    if (from) summaries[id][key] = from
+    else problems.push(`${PATHWAYS[id]} Pathway: no ${key} found`)
+  }
+}
 
 writeFileSync(
   join(OUT, 'summaries.json'),

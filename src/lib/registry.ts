@@ -8,6 +8,7 @@ import type { PathwayId } from '../data/pathways'
 export const dom = {
   emblemButtons: new Map<PathwayId, HTMLButtonElement>(),
   neighborSlots: new Map<PathwayId, HTMLElement>(),
+  groupCaptions: new Map<string, HTMLElement>(),
   hoverLabel: null as HTMLDivElement | null,
 }
 

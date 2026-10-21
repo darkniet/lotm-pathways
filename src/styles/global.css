@@ -1096,18 +1096,28 @@ button {
   background: #000;
 }
 
+/* Turns and closes as a whole when leaving (driven per frame from TitleScreen). */
+.scene-turn {
+  position: absolute;
+  inset: 0;
+}
+
+.title-screen[data-leaving='true'] .title-scene {
+  background: transparent;
+}
+
 .scene-layer {
   position: absolute;
   inset: 0;
-  transform: translate(calc(var(--px) * var(--d) * -1.6), calc(var(--py) * var(--d) * -1.2)) scale(1.08);
+  /* --z: the walk into the hall on leaving, toward its far end. */
+  transform: translate(calc(var(--px) * var(--d) * -1.6), calc(var(--py) * var(--d) * -1.2)) scale(calc(1.08 * var(--z, 1)));
+  transform-origin: 50% 48%;
   transition: transform 1.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  will-change: transform;
+  will-change: transform, opacity;
 }
 
-.scene-zoom {
-  position: absolute;
-  inset: 0;
-  transform-origin: 50% 58%;
+.title-screen[data-leaving='true'] .scene-layer {
+  transition: none;
 }
 
 .scene-layer img {
@@ -1153,6 +1163,7 @@ button {
     radial-gradient(ellipse 50% 38% at 50% 27%, rgb(0 0 0 / 0.45), transparent 70%),
     radial-gradient(ellipse at 50% 50%, transparent 55%, rgb(0 0 0 / 0.7));
   box-shadow: inset 0 0 120px 20px #000;
+  opacity: var(--vig, 1);
 }
 
 .title-dust {
@@ -1188,6 +1199,7 @@ button {
 }
 
 .logo-mark,
+.logo-piece,
 .logo-burst {
   position: absolute;
   inset: 0;
@@ -1197,23 +1209,49 @@ button {
 }
 
 /* Silver, as the official logo is, with a cold band where light would catch it. */
-.logo-mark {
+.logo-mark,
+.logo-piece {
   background: linear-gradient(180deg, #fdfdff 0%, #eceef4 34%, #a9b0c1 58%, #e9ecf3 78%, #c3c9d7 100%);
 }
 
-/* A slow sheen crossing the letters every few seconds. */
-.logo-mark::after {
-  content: '';
+/* The logo cut along a smoke mask, under the whole mark until leaving splits them. */
+.logo-piece {
+  -webkit-mask: var(--logo) center / contain no-repeat, var(--piece) center / 100% 100% no-repeat;
+  -webkit-mask-composite: source-in;
+  mask: var(--logo) center / contain no-repeat, var(--piece) center / 100% 100% no-repeat;
+  mask-composite: intersect;
+  will-change: transform, opacity, filter;
+}
+
+/* A slow sheen crossing the letters every few seconds; once, quickly, on leaving. */
+.logo-sheen {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 300%;
   background: linear-gradient(105deg, transparent 40%, #fff3d2 48.5%, #ffffff 50%, #fff3d2 51.5%, transparent 60%);
-  background-size: 300% 100%;
-  background-position: 120% 0;
+  transform: translateX(-80%);
   animation: logo-sheen 8s ease-in-out 3s infinite;
+  will-change: transform;
+}
+
+.title-screen[data-leaving='true'] .logo-sheen {
+  animation: none;
 }
 
 .logo-burst {
   background: #fff7e3;
+  opacity: 0;
+  will-change: opacity;
+}
+
+.logo-mark {
+  will-change: opacity;
+}
+
+.logo-smoke {
+  will-change: transform;
 }
 
 .title-flare {
@@ -1235,12 +1273,35 @@ button {
   50% { transform: translateY(-7px); }
 }
 
+/* Moved, not repainted: a band three times the logo's width slides across it. */
 @keyframes logo-sheen {
-  0% { background-position: 120% 0; }
-  30%, 100% { background-position: -20% 0; }
+  0% { transform: translateX(-80%); }
+  30%, 100% { transform: translateX(13.33%); }
 }
 
 /* The only call to action is wordless: a gilt ring that breathes, with a ripple. */
+.enter-mark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform-origin: 50% calc(100% - 9vh - var(--safe-bottom) - 17px);
+}
+
+/* Sent out across the hall when the glyph closes. */
+.enter-ring {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - 9vh - var(--safe-bottom) - 17px);
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--gilt-pale) 80%, transparent);
+  box-shadow: 0 0 18px color-mix(in srgb, var(--gilt) 50%, transparent), inset 0 0 18px color-mix(in srgb, var(--gilt) 35%, transparent);
+  opacity: 0;
+  pointer-events: none;
+}
+
 .enter-glyph {
   position: absolute;
   left: 50%;
@@ -1300,7 +1361,7 @@ button {
 
 @media (prefers-reduced-motion: reduce) {
   .logo-float,
-  .logo-mark::after,
+  .logo-sheen,
   .scene-layer img.fog,
   .scene-layer img.hall,
   .enter-glyph,
@@ -1311,4 +1372,58 @@ button {
 
 .is-mobile .mini-logo {
   width: 88px;
+}
+
+/* Star-atlas captions naming each neighbor group, placed by the 3D layer each frame. */
+.group-captions {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+.group-caption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  white-space: nowrap;
+  text-shadow: 0 0 18px var(--void), 0 0 8px var(--void), 0 0 3px #000, 0 1px 2px #000;
+}
+
+.group-caption::before {
+  content: '';
+  width: 38px;
+  height: 1px;
+  margin-bottom: 5px;
+  background: linear-gradient(90deg, transparent, var(--gilt), transparent);
+  opacity: 0.75;
+}
+
+.gc-name {
+  font-family: var(--f-display);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--gilt-pale);
+  transition: color 0.3s;
+}
+
+.gc-sefirah {
+  font-size: 14px;
+  font-style: italic;
+  color: color-mix(in srgb, var(--vellum) 72%, var(--mist));
+}
+
+.group-caption[data-lit='true'] .gc-name {
+  color: #fff6dc;
+}
+
+.hover-label .grp {
+  margin-top: 1px;
+  font-size: 14px;
+  font-style: italic;
+  color: color-mix(in srgb, var(--gilt-pale) 70%, var(--mist));
 }

@@ -54,7 +54,7 @@ export function PathwayUI({ mobile }: { mobile: boolean }) {
           className={sheetOpen ? 'pathway-ui sheet-open' : 'pathway-ui'}
           style={{ '--path': p.color } as CSSProperties}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 0.6, delay: phase === 'flyIn' ? 0.25 : 0 } }}
+          animate={{ opacity: 1, transition: { duration: 0.6, delay: phase === 'flyIn' ? 0.5 : 0 } }}
           exit={{ opacity: 0, transition: { duration: 0.25 } }}
         >
           <button type="button" className="back" onClick={close}>

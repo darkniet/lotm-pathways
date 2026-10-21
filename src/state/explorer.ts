@@ -5,8 +5,8 @@ import { now } from '../lib/clock'
 export type View = 'title' | 'starfield' | 'pathway'
 /**
  * title   the title screen, waiting for the visitor to enter
- * enter   title → starfield (logo dissolves, camera pushes through the fog)
- * intro   stars fade in, emblems ignite
+ * enter   title → starfield (into the hall, the logo smokes away, the gray fog closes in)
+ * intro   the fog parts on the starfield; a ripple from the Fool ignites the pathways
  * idle    nothing scripted is running
  * flyIn   starfield → pathway (camera flight, flash, view switch)
  * flyOut  pathway → starfield (the same in reverse)
@@ -17,13 +17,15 @@ export type Phase = 'title' | 'enter' | 'intro' | 'idle' | 'flyIn' | 'flyOut' | 
 
 /** Seconds. `*Switch` is when the view flips, hidden behind the flash. */
 export const TIMING = {
-  enter: 2.1,
-  enterSwitch: 1.45,
+  enterSwitch: 1.35,
   enterReduced: 0.35,
-  intro: 3.0,
+  intro: 2.8,
   introReduced: 0.6,
-  fly: 1.65,
-  flySwitch: 0.95,
+  /** Into the intro: the fog has parted after this long, and the camera has settled. */
+  introClear: 1.3,
+  introFlight: 1.8,
+  fly: 2.0,
+  flySwitch: 1.0,
   fade: 0.44,
   fadeSwitch: 0.22,
   swap: 0.7,
@@ -153,5 +155,7 @@ declare global {
   interface Window {
     __explorerReady?: boolean
     __explorer?: typeof useExplorer
+    __now?: () => number
+    __freezeTime?: (at: number | null) => void
   }
 }

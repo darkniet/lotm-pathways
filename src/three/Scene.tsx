@@ -10,10 +10,11 @@ import { BacklundBackdrop, VortexBackdrop } from './Backdrops'
 import { Astrolabe } from './Astrolabe'
 import { Constellation } from './Constellation'
 import { Effects } from './Effects'
+import { FogVeil } from './FogVeil'
 import { NeighborEmblems } from './NeighborEmblems'
 import { ShootingStars } from './ShootingStars'
 import { Starfield } from './Starfield'
-import { TitleSky } from './TitleSky'
+import { Warmup } from './Warmup'
 
 function World() {
   const textures = useEmblems()
@@ -44,12 +45,13 @@ export function Scene() {
       <Starfield />
       <ShootingStars />
       <Astrolabe />
-      <TitleSky />
       <Suspense fallback={null}>
         <World />
+        <Warmup />
       </Suspense>
       <Bursts />
       <CameraRig />
+      <FogVeil />
       <Effects />
     </Canvas>
   )

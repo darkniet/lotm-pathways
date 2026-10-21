@@ -6,6 +6,9 @@ import { preloadRecord } from '../data/wiki'
 import { dom } from '../lib/registry'
 import { useExplorer } from '../state/explorer'
 
+/** Neighbor groups and their Sefirot, in reading order, for the star-atlas captions. */
+const GROUPS = [...new Map(pathways.map((p) => [p.group, p.sefirah])).entries()]
+
 export function StarfieldUI({ mobile }: { mobile: boolean }) {
   const view = useExplorer((s) => s.view)
   const phase = useExplorer((s) => s.phase)
@@ -15,9 +18,13 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
   const open = useExplorer((s) => s.open)
   const setHover = useExplorer((s) => s.setHover)
 
-  const shown = view === 'starfield' && phase !== 'flyIn'
+  // Hidden for the whole flight both ways: badges sweeping under a resting cursor
+  // mid-flight must not trigger hover states. The same holds while the intro ignites
+  // them, so the buttons only take the pointer once every badge is lit.
+  const shown = view === 'starfield' && phase !== 'flyIn' && phase !== 'flyOut'
+  const interactive = shown && phase !== 'intro'
   const firstShow = useRef(true)
-  const delay = firstShow.current && !reduced ? 0.9 : 0
+  const delay = firstShow.current && !reduced ? 1.1 : 0
   useEffect(() => {
     if (shown) firstShow.current = false
   }, [shown])
@@ -27,14 +34,19 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
   if (hoverId) labelId.current = hoverId
   const label = labelId.current ? pathwayById[labelId.current] : null
 
-  // Coming back from a pathway: return focus to the emblem we left from.
+  // Coming back from a pathway: return focus to the emblem we left from, once the
+  // flight has landed and the buttons are focusable again.
   const prevView = useRef(view)
+  const pendingFocus = useRef<PathwayId | null>(null)
   useEffect(() => {
-    if (prevView.current === 'pathway' && view === 'starfield' && lastActiveId) {
-      dom.emblemButtons.get(lastActiveId)?.focus({ preventScroll: true })
-    }
+    if (prevView.current === 'pathway' && view === 'starfield') pendingFocus.current = lastActiveId
     prevView.current = view
   }, [view, lastActiveId])
+  useEffect(() => {
+    if (!interactive || !pendingFocus.current) return
+    dom.emblemButtons.get(pendingFocus.current)?.focus({ preventScroll: true })
+    pendingFocus.current = null
+  }, [interactive])
 
   return (
     <>
@@ -52,7 +64,7 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
         {mobile && <p className="title-hint">Tap a pathway to climb its Sequences</p>}
       </motion.header>
 
-      <div className="emblem-layer" data-hidden={!shown}>
+      <div className="emblem-layer" data-hidden={!interactive}>
         <nav aria-label="Pathways">
           {pathways.map((p) => (
             <button
@@ -64,8 +76,8 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
               type="button"
               className="emblem-btn"
               style={{ '--path': p.color } as CSSProperties}
-              aria-label={`${p.name} pathway, begins as ${p.sequences[0].name}`}
-              tabIndex={shown ? 0 : -1}
+              aria-label={`${p.name} pathway, begins as ${p.sequences[0].name}, under the ${p.group}`}
+              tabIndex={interactive ? 0 : -1}
               onPointerEnter={(e) => {
                 preloadRecord(p.id)
                 if (e.pointerType === 'mouse') setHover(p.id)
@@ -85,12 +97,31 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
       </div>
 
       {!mobile && (
+        <div className="group-captions" aria-hidden>
+          {GROUPS.map(([group, sefirah]) => (
+            <div
+              key={group}
+              className="group-caption"
+              style={{ opacity: 0 }}
+              ref={(el) => {
+                if (el) dom.groupCaptions.set(group, el)
+                else dom.groupCaptions.delete(group)
+              }}
+            >
+              <span className="gc-name">{group}</span>
+              {sefirah && sefirah !== group && <span className="gc-sefirah">{sefirah}</span>}
+            </div>
+          ))}
+        </div>
+      )}
+
+      {!mobile && (
         <div
           ref={(el) => {
             dom.hoverLabel = el
           }}
           className="hover-label"
-          data-visible={!!hoverId && shown}
+          data-visible={!!hoverId && interactive}
           style={{ '--path': label?.color } as CSSProperties}
           aria-hidden
         >
@@ -98,6 +129,7 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
             <>
               <span className="nm">{label.name}</span>
               <span className="sub">begins as {label.sequences[0].name}</span>
+              <span className="grp">under the {label.group}</span>
             </>
           )}
         </div>
@@ -108,14 +140,14 @@ export function StarfieldUI({ mobile }: { mobile: boolean }) {
           className="hint"
           initial={{ opacity: 0 }}
           animate={{ opacity: shown ? 1 : 0 }}
-          transition={{ duration: reduced ? 0.2 : 1, delay: delay ? 2.6 : 0 }}
+          transition={{ duration: reduced ? 0.2 : 1, delay: delay ? 2.4 : 0 }}
         >
           Choose a pathway to climb its Sequences
         </motion.p>
       )}
 
       {!mobile && (
-        <motion.p className="credit" initial={{ opacity: 0 }} animate={{ opacity: shown ? 1 : 0 }} transition={{ duration: 1, delay: delay ? 2.8 : 0 }}>
+        <motion.p className="credit" initial={{ opacity: 0 }} animate={{ opacity: shown ? 1 : 0 }} transition={{ duration: 1, delay: delay ? 2.6 : 0 }}>
           A fan-made explorer. Logo, title art and pathway symbols from the official Lord of the Mysteries site; Sequence records from the Lord of the Mysteries Wiki (CC BY-SA 3.0).
         </motion.p>
       )}

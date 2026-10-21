@@ -37,6 +37,10 @@ export interface Pathway {
   /** Ten entries, Sequence 9 first, Sequence 0 last */
   sequences: Sequence[]
   neighbors: PathwayId[]
+  /** The power above this pathway's neighbor group (e.g. "Lord of Mysteries"), from the wiki. */
+  group: string
+  /** The Sefirah associated with the pathway, from the wiki. */
+  sefirah: string
 }
 
 export type Tier = 'Low Sequence' | 'Mid Sequence' | 'Saint' | 'Angel' | 'True God'
@@ -77,6 +81,8 @@ const STYLE: [PathwayId, string, `#${string}`][] = [
 
 type WikiSummary = {
   overview: string
+  group: string
+  sefirah: string
   neighbors: string[]
   sequences: Record<string, { name: string; abilities: string[] }>
 }
@@ -93,6 +99,8 @@ export const pathways: Pathway[] = STYLE.map(([id, name, color]) => {
     emblem: id,
     description: w.overview,
     neighbors: w.neighbors as PathwayId[],
+    group: w.group,
+    sefirah: w.sefirah,
     sequences: NUMBERS.map((n) => ({
       number: n,
       name: w.sequences[n].name,

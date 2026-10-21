@@ -98,6 +98,8 @@
      ]
     }
    },
+   "group": "Lord of Mysteries",
+   "sefirah": "Sefirah Castle",
    "neighbors": [
     "error",
     "door"
@@ -194,6 +196,8 @@
      ]
     }
    },
+   "group": "Lord of Mysteries",
+   "sefirah": "Sefirah Castle",
    "neighbors": [
     "fool",
     "door"
@@ -294,6 +298,8 @@
      ]
     }
    },
+   "group": "Lord of Mysteries",
+   "sefirah": "Sefirah Castle",
    "neighbors": [
     "fool",
     "error"
@@ -397,6 +403,8 @@
      ]
     }
    },
+   "group": "God Almighty",
+   "sefirah": "Chaos Sea",
    "neighbors": [
     "sun",
     "tyrant",
@@ -503,6 +511,8 @@
      ]
     }
    },
+   "group": "God Almighty",
+   "sefirah": "Chaos Sea",
    "neighbors": [
     "visionary",
     "tyrant",
@@ -614,6 +624,8 @@
      ]
     }
    },
+   "group": "God Almighty",
+   "sefirah": "Chaos Sea",
    "neighbors": [
     "visionary",
     "sun",
@@ -706,6 +718,8 @@
      ]
     }
    },
+   "group": "God Almighty",
+   "sefirah": "Chaos Sea",
    "neighbors": [
     "visionary",
     "sun",
@@ -802,6 +816,8 @@
      ]
     }
    },
+   "group": "God Almighty",
+   "sefirah": "Chaos Sea",
    "neighbors": [
     "visionary",
     "sun",
@@ -904,6 +920,8 @@
      ]
     }
    },
+   "group": "Eternal Darkness",
+   "sefirah": "River of Eternal Darkness",
    "neighbors": [
     "death",
     "twilight_giant",
@@ -1005,6 +1023,8 @@
      ]
     }
    },
+   "group": "Eternal Darkness",
+   "sefirah": "River of Eternal Darkness",
    "neighbors": [
     "darkness",
     "twilight_giant",
@@ -1102,6 +1122,8 @@
      ]
     }
    },
+   "group": "Eternal Darkness",
+   "sefirah": "River of Eternal Darkness",
    "neighbors": [
     "darkness",
     "death",
@@ -1212,6 +1234,8 @@
      ]
     }
    },
+   "group": "Calamity of Destruction",
+   "sefirah": "City of Calamity",
    "neighbors": [
     "darkness",
     "death",
@@ -1319,6 +1343,8 @@
      ]
     }
    },
+   "group": "Calamity of Destruction",
+   "sefirah": "City of Calamity",
    "neighbors": [
     "darkness",
     "death",
@@ -1415,6 +1441,8 @@
      ]
     }
    },
+   "group": "Demon of Knowledge",
+   "sefirah": "Knowledge Moor",
    "neighbors": [
     "paragon"
    ]
@@ -1499,6 +1527,8 @@
      "abilities": []
     }
    },
+   "group": "Demon of Knowledge",
+   "sefirah": "Knowledge Moor",
    "neighbors": [
     "hermit"
    ]
@@ -1591,6 +1621,8 @@
      ]
     }
    },
+   "group": "Key of Light",
+   "sefirah": "Key of Light",
    "neighbors": []
   },
   "mother": {
@@ -1693,6 +1725,8 @@
      ]
     }
    },
+   "group": "Goddess of Origin",
+   "sefirah": "Brood Hive",
    "neighbors": [
     "moon"
    ]
@@ -1789,6 +1823,8 @@
      ]
     }
    },
+   "group": "Goddess of Origin",
+   "sefirah": "Brood Hive",
    "neighbors": [
     "mother"
    ]
@@ -1880,6 +1916,8 @@
      ]
     }
    },
+   "group": "Father of Devils",
+   "sefirah": "Tenebrous World",
    "neighbors": [
     "chained"
    ]
@@ -1977,6 +2015,8 @@
      ]
     }
    },
+   "group": "Father of Devils",
+   "sefirah": "Tenebrous World",
    "neighbors": [
     "abyss"
    ]
@@ -2066,6 +2106,8 @@
      ]
     }
    },
+   "group": "Uncertain Mist",
+   "sefirah": "Nation of Disorder",
    "neighbors": [
     "justiciar"
    ]
@@ -2161,6 +2203,8 @@
      ]
     }
    },
+   "group": "Uncertain Mist",
+   "sefirah": "Nation of Disorder",
    "neighbors": [
     "black_emperor"
    ]

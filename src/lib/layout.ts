@@ -49,6 +49,29 @@ const DESKTOP: Record<PathwayId, [number, number, number]> = {
 }
 
 export const STAR_CAM = { desktop: 16, mobile: 16 }
+
+/**
+ * Star-atlas captions for the neighbor groups on the desktop constellation, placed in
+ * the same screen space as DESKTOP (clear of the badges). Keys are the wiki's group names.
+ */
+export const GROUP_CAPTIONS: Record<string, [number, number]> = {
+  'Lord of Mysteries': [0, 0.38],
+  'God Almighty': [-0.98, -0.13],
+  'Eternal Darkness': [0.74, 0.78],
+  'Calamity of Destruction': [1.2, -0.47],
+  'Demon of Knowledge': [-1.16, -0.8],
+  'Key of Light': [0.04, 0.95],
+  'Goddess of Origin': [-0.68, -0.88],
+  'Father of Devils': [0.6, -0.47],
+  'Uncertain Mist': [1.42, 0.74],
+}
+
+/** Screen-space (half-height units) → world position on the z = 0 plane of the desktop view. */
+export function desktopScreenToWorld(sx: number, sy: number, width: number, height: number, out = new THREE.Vector3()) {
+  const halfH = STAR_CAM.desktop * TAN
+  const xScale = THREE.MathUtils.clamp(width / height / 1.62, 0.6, 1.2)
+  return out.set(sx * xScale * halfH, sy * halfH, 0)
+}
 const MOBILE_ROW = 2.4
 
 export interface ConstellationLayout {
@@ -58,14 +81,11 @@ export interface ConstellationLayout {
   scrollSpan: number
   /** Visible world height at z = 0. */
   visibleHeight: number
-  /** Screen-space distance from the center, used to order the intro ignition. */
-  igniteOrder: Record<PathwayId, number>
 }
 
 export function constellationLayout(width: number, height: number): ConstellationLayout {
   const aspect = width / height
   const positions = {} as Record<PathwayId, THREE.Vector3>
-  const igniteOrder = {} as Record<PathwayId, number>
 
   if (!isMobileLayout(width, height)) {
     const D = STAR_CAM.desktop
@@ -76,9 +96,7 @@ export function constellationLayout(width: number, height: number): Constellatio
       const k = (D - z) / D
       positions[p.id] = new THREE.Vector3(sx * xScale * halfH * k, sy * halfH * k, z)
     }
-    const sorted = [...pathways].sort((a, b) => Math.hypot(...DESKTOP[a.id].slice(0, 2)) - Math.hypot(...DESKTOP[b.id].slice(0, 2)))
-    sorted.forEach((p, i) => (igniteOrder[p.id] = i))
-    return { positions, camDist: D, scrollSpan: 0, visibleHeight: 2 * halfH, igniteOrder }
+    return { positions, camDist: D, scrollSpan: 0, visibleHeight: 2 * halfH }
   }
 
   // Mobile: two staggered columns that scroll, groups kept in reading order.
@@ -96,12 +114,11 @@ export function constellationLayout(width: number, height: number): Constellatio
     const z = -1.4 + rand() * 1.4
     const k = (D - z) / D
     positions[p.id] = new THREE.Vector3(x * k, y * k, z)
-    igniteOrder[p.id] = i
   })
   const rows = Math.ceil(pathways.length / 2)
   const contentHeight = (rows - 1) * MOBILE_ROW + 0.55 + 2.6
   const scrollSpan = Math.max(0, contentHeight - 2 * halfH + 2.4)
-  return { positions, camDist: D, scrollSpan, visibleHeight: 2 * halfH, igniteOrder }
+  return { positions, camDist: D, scrollSpan, visibleHeight: 2 * halfH }
 }
 
 // ── The ascent (Screen 2) ────────────────────────────────────────────────────

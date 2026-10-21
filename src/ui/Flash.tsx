@@ -13,13 +13,8 @@ export function Flash() {
         if (s.phaseStart === prev.phaseStart && s.phase === prev.phase) return
         const el = scope.current
         if (!el) return
-        if (s.phase === 'flyIn' || s.phase === 'flyOut') {
-          const id = s.phase === 'flyIn' ? s.activeId : s.lastActiveId
-          if (!id) return
-          el.dataset.mode = 'glow'
-          el.style.setProperty('--flash', pathwayById[id].color)
-          animate(el, { opacity: [0, 0.95, 0] }, { duration: 0.62, delay: TIMING.flySwitch - 0.16, times: [0, 0.22, 1], ease: 'easeOut' })
-        } else if (s.phase === 'swap' && s.pendingId) {
+        // Flights cross through the gray fog (FogVeil) instead of a flash.
+        if (s.phase === 'swap' && s.pendingId) {
           el.dataset.mode = 'glow'
           el.style.setProperty('--flash', pathwayById[s.pendingId].color)
           animate(el, { opacity: [0, 0.6, 0] }, { duration: TIMING.swap * 0.9, times: [0, 0.3, 1], ease: 'easeOut' })
