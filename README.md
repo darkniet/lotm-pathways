@@ -1,0 +1,1 @@
+A "Lord Of The Mysteries" pathway overview including all sequences of each pathway with traits, advancement, the potion and how their characteristic look (as far as these Things are known from the Novel).
